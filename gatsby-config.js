@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Paolo Tornabene`,
@@ -5,7 +9,22 @@ module.exports = {
     author: `@jonathangiardino`,
   },
   plugins: [
+    `local-storage-fallback`,
+    `dotenv`,
+    `smooth-scroll`,
     `gatsby-plugin-react-helmet`,
+    // `gatsby-image-graphql-schema`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    
+    {
+      resolve: 'gatsby-plugin-global-context',
+      options: {
+        context: {
+          kittens: true
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -18,11 +37,9 @@ module.exports = {
       options: {
         typeName: `GraphCMS`,
         fieldName: `gcms`,
-        url: `https://api-eu-central-1.graphcms.com/v2/ckc7p06b70v2d01z6ft4n65nw/master`,
+        url: process.env.GATSBY_GRAPHCMS_API_ENDPOINT,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
