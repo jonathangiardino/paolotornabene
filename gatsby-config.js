@@ -51,10 +51,10 @@ module.exports = {
         name: `Paolo Tornabene`,
         short_name: `Paolo Tornabene`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#F3C623`,
+        theme_color: `#1F2833`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo-rounded.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

@@ -6,6 +6,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Hero = styled.h1`
+background: linear-gradient(180deg, rgba(255,255,255,0) 70%, #f3c623 30%);
+  display: inline;
   font-size: 5rem;
   text-transform: uppercase;
   line-height: 120%;
