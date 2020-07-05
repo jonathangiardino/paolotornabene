@@ -1,42 +1,71 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React, { useContext } from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
+import styled from "styled-components"
+import Context from "../store/context"
+import { Icon } from "@chakra-ui/core"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+// Style
+const Nav = styled.div`
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: ${props => props.theme.spacing.semiSmall};
+`
+const Menu = styled.div`
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+`
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const Logo = styled.div`
+  width: 3rem;
+`
 
-Header.defaultProps = {
-  siteTitle: ``,
+
+
+const Header = () => {
+  const { state, dispatch } = useContext(Context)
+
+  const logo = useStaticQuery(graphql`
+  query {
+    logoDark: file(relativePath: { eq: "paolotornabenelogo-dark.png" }) {
+      childImageSharp {
+        fixed(width: 50) {
+            ...GatsbyImageSharpFixed
+          }
+      }
+    }
+    logoLight: file(relativePath: { eq: "paolotornabenelogo-light.png" }) {
+      childImageSharp {
+        fixed(width: 50) {
+            ...GatsbyImageSharpFixed
+          }
+      }
+    }
+  }
+`)
+
+  return (
+    <Nav>
+      <Logo>
+        <Img
+          fixed={state.isDark ? logo.logoLight.childImageSharp.fixed : logo.logoDark.childImageSharp.fixed}
+        />
+      </Logo>
+      <Menu>
+        <Icon
+          onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
+          name={state.isDark ? "sun" : "moon"}
+          color={state.isDark ? "#fff" : "#1F2833"}
+          size="24px"
+          style={{ marginBottom: '2rem'}}
+        ></Icon>
+      </Menu>
+    </Nav>
+  )
 }
 
 export default Header

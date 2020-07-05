@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Paolo Tornabene`,
-    description: `Professional photographer and videographer from Italy living in London.`,
+    description: `Filmmaker based in London, UK`,
     author: `@jonathangiardino`,
   },
   plugins: [
@@ -13,18 +13,15 @@ module.exports = {
     `dotenv`,
     `smooth-scroll`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-chakra-ui",
+      options: {
+        isResettingCSS: false,
+      },
+    },
     // `gatsby-image-graphql-schema`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    
-    {
-      resolve: 'gatsby-plugin-global-context',
-      options: {
-        context: {
-          kittens: true
-        }
-      }
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,10 +38,18 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Oswald", "Poppins"],
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Paolo Tornabene`,
+        short_name: `Paolo Tornabene`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
