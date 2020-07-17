@@ -1,4 +1,4 @@
-import React, {useContext} from "react"
+import React, { useContext } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Context from "../store/context"
@@ -33,16 +33,18 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Body style={{
-        backgroundColor: state.isDark ? "#1F2833" : "#fff",
-        color: state.isDark ? "#fff" : "#1F2833",
-        textDecoration: "none"
-      }}>
+      <Body
+        style={{
+          backgroundColor: state.isDark ? "#010022" : "#fff",
+          color: state.isDark ? "#fff" : "#010022",
+          textDecoration: "none",
+        }}
+      >
         <Header />
         <div
           style={{
             margin: `0 auto`,
-            maxWidth: 1200,
+            maxWidth: 1280,
             padding: `0 1.0875rem 1.45rem`,
             fontFamily: "Poppins",
           }}
@@ -51,7 +53,8 @@ const Layout = ({ children }) => {
           <footer>
             © {new Date().getFullYear()}, Built with
             {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a> by <a href="https://www.jonathangiardino.com">Jonathan Giardino</a>
+            <a href="https://www.gatsbyjs.org">Gatsby</a> by{" "}
+            <a href="https://www.jonathangiardino.com">Jonathan Giardino</a>
           </footer>
         </div>
       </Body>

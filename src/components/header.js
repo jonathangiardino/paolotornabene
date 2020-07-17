@@ -11,7 +11,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${props => props.theme.spacing.semiSmall};
+  padding: ${props => props.theme.spacing.small};
 `
 const Menu = styled.div`
   display: flex;
@@ -24,44 +24,46 @@ const Logo = styled.div`
   width: 3rem;
 `
 
-
-
 const Header = () => {
   const { state, dispatch } = useContext(Context)
 
   const logo = useStaticQuery(graphql`
-  query {
-    logoDark: file(relativePath: { eq: "paolotornabenelogo-dark.png" }) {
-      childImageSharp {
-        fixed(width: 40) {
+    query {
+      logoDark: file(relativePath: { eq: "paolotornabenelogo-dark.png" }) {
+        childImageSharp {
+          fixed(width: 40) {
             ...GatsbyImageSharpFixed
           }
+        }
       }
-    }
-    logoLight: file(relativePath: { eq: "paolotornabenelogo-light.png" }) {
-      childImageSharp {
-        fixed(width: 40) {
+      logoLight: file(relativePath: { eq: "paolotornabenelogo-light.png" }) {
+        childImageSharp {
+          fixed(width: 40) {
             ...GatsbyImageSharpFixed
           }
+        }
       }
     }
-  }
-`)
+  `)
 
   return (
     <Nav>
       <Logo>
         <Img
-          fixed={state.isDark ? logo.logoLight.childImageSharp.fixed : logo.logoDark.childImageSharp.fixed}
+          fixed={
+            state.isDark
+              ? logo.logoLight.childImageSharp.fixed
+              : logo.logoDark.childImageSharp.fixed
+          }
         />
       </Logo>
       <Menu>
         <Icon
           onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
           name={state.isDark ? "sun" : "moon"}
-          color={state.isDark ? "#fff" : "#1F2833"}
+          color={state.isDark ? "#fff" : "#010022"}
           size="28px"
-          style={{ marginBottom: '1rem'}}
+          style={{ marginBottom: "1rem" }}
         ></Icon>
       </Menu>
     </Nav>
