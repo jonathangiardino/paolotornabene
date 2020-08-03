@@ -9,7 +9,7 @@ export default {
   },
   fonts: {
     oswald: "Oswald",
-    poppins: "Poppins",
+    reemKufi: "Reem Kufi",
   },
   fontSize: {
     xsmall: "0.75rem",
@@ -30,8 +30,8 @@ export default {
     yellow: "#f3c623",
   },
   breakpoints: {
-    mobile: "only screen and (max-width: 50rem)",
-    tablet: "only screen and (max-width: 65rem)",
+    mobile: "only screen and (max-width: 767px)",
+    tablet: "only screen and (max-width: 991px)",
   },
   spacing: {
     xsmall: "0.50rem",

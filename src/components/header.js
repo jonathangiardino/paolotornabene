@@ -7,21 +7,43 @@ import { Icon } from "@chakra-ui/core"
 
 // Style
 const Nav = styled.div`
+  position: absolute;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${props => props.theme.spacing.small};
+  padding: ${props => props.theme.spacing.medium};
+  z-index: 5;
 `
+
 const Menu = styled.div`
   display: flex;
   list-style: none;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 `
 
 const Logo = styled.div`
   width: 3rem;
+`
+
+const MenuButton = styled.div`
+  font-size: ${props => props.theme.fontSize.small};
+  padding: ${props => props.theme.spacing.small};
+  cursor: pointer;
+  @media ${props => props.theme.breakpoints.mobile} {
+    padding: ${props => props.theme.spacing.xsmall};
+  }
+`
+const MenuLine = styled.div`
+  width: 1.8rem;
+  height: 0.2rem;
+  margin: 0.3rem;
+  &.longer {
+    width: 2rem;
+  }
 `
 
 const Header = () => {
@@ -57,14 +79,18 @@ const Header = () => {
           }
         />
       </Logo>
+
       <Menu>
         <Icon
           onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
           name={state.isDark ? "sun" : "moon"}
           color={state.isDark ? "#fff" : "#010022"}
           size="28px"
-          style={{ marginBottom: "1rem" }}
         ></Icon>
+        <MenuButton >
+          <MenuLine style={{ backgroundColor: state.isDark ? "#fff" : "#010022" }}/>
+          <MenuLine className="longer" style={{ backgroundColor: state.isDark ? "#fff" : "#010022" }}/>
+        </MenuButton>
       </Menu>
     </Nav>
   )

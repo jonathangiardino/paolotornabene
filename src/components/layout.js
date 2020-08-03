@@ -43,10 +43,8 @@ const Layout = ({ children }) => {
         <Header />
         <div
           style={{
-            margin: `0 auto`,
-            maxWidth: 1280,
-            padding: `0 1.0875rem 1.45rem`,
-            fontFamily: "Poppins",
+            margin: "0 auto",
+            fontFamily: "Reem Kufi",
           }}
         >
           <main>{children}</main>
