@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Context from "../store/context"
 
 import Header from "./header"
+
 import "./layout.css"
 
 if (typeof window !== "undefined") {
@@ -21,16 +21,6 @@ const Body = styled.div`
 const Layout = ({ children }) => {
   const { state } = useContext(Context)
 
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <>
       <Body
@@ -38,23 +28,18 @@ const Layout = ({ children }) => {
           backgroundColor: state.isDark ? "#010022" : "#fff",
           color: state.isDark ? "#fff" : "#010022",
           textDecoration: "none",
+          margin: "0 auto",
+          fontFamily: "Reem Kufi",
         }}
       >
         <Header />
-        <div
-          style={{
-            margin: "0 auto",
-            fontFamily: "Reem Kufi",
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a> by{" "}
-            <a href="https://www.jonathangiardino.com">Jonathan Giardino</a>
-          </footer>
-        </div>
+        <main>{children}</main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a> by{" "}
+          <a href="https://www.jonathangiardino.com">Jonathan Giardino</a>
+        </footer>
       </Body>
     </>
   )

@@ -38,8 +38,8 @@ const MenuButton = styled.div`
   }
 `
 const MenuLine = styled.div`
-  width: 1.8rem;
-  height: 0.2rem;
+  width: 1.5rem;
+  height: 0.16rem;
   margin: 0.3rem;
   &.longer {
     width: 2rem;
