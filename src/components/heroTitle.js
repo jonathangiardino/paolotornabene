@@ -50,7 +50,7 @@ const Name = styled.h2`
   }
 `
 
-const Line = styled.div`
+export const Line = styled.div`
   width: 15rem;
   height: 0.3rem;
   background-color: ${props => props.theme.colors.yellow};
