@@ -24,7 +24,7 @@ const VideoSource = styled.video`
   }
 `
 
-const backgroundVideo = ({source}) => {
+const BackgroundVideo = ({source}) => {
   return (
     <VideoContainer>
       <VideoSource autoPlay muted loop>
@@ -35,4 +35,4 @@ const backgroundVideo = ({source}) => {
   )
 }
 
-export default backgroundVideo
+export default BackgroundVideo

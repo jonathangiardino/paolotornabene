@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -15,6 +15,9 @@ const Nav = styled.div`
   align-items: center;
   padding: ${props => props.theme.spacing.medium};
   z-index: 5;
+  @media ${props => props.theme.breakpoints.mobile} {
+    padding: ${props => props.theme.spacing.small};
+  }
 `
 
 const Menu = styled.div`
@@ -27,6 +30,9 @@ const Menu = styled.div`
 
 const Logo = styled.div`
   width: 3rem;
+  @media ${props => props.theme.breakpoints.mobile} {
+    width: 2rem;
+  }
 `
 
 const MenuButton = styled.div`
@@ -46,7 +52,7 @@ const MenuLine = styled.div`
   }
 `
 
-const Header = () => {
+const Header = ({ openMenu }) => {
   const { state, dispatch } = useContext(Context)
 
   const logo = useStaticQuery(graphql`
@@ -84,12 +90,17 @@ const Header = () => {
         <Icon
           onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
           name={state.isDark ? "sun" : "moon"}
-          color={state.isDark ? "#fff" : "#010022"}
+          color={state.isDark ? "#fff" : "#0a0a0f"}
           size="28px"
         ></Icon>
-        <MenuButton >
-          <MenuLine style={{ backgroundColor: state.isDark ? "#fff" : "#010022" }}/>
-          <MenuLine className="longer" style={{ backgroundColor: state.isDark ? "#fff" : "#010022" }}/>
+        <MenuButton onClick={openMenu}>
+          <MenuLine
+            style={{ backgroundColor: state.isDark ? "#fff" : "#0a0a0f" }}
+          />
+          <MenuLine
+            className="longer"
+            style={{ backgroundColor: state.isDark ? "#fff" : "#0a0a0f" }}
+          />
         </MenuButton>
       </Menu>
     </Nav>

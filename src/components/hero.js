@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Context from "../store/context"
 
 import BackgroundVideo from "./backgroundVideo"
+import HeroTitle from "./heroTitle"
 
 const HeroContainer = styled.div`
   width: 100vw;
@@ -17,68 +18,6 @@ const HeroContainer = styled.div`
   @media ${props => props.theme.breakpoints.mobile} {
     flex-direction: column;
     align-items: flex-end;
-  }
-`
-const TextContainer = styled.div`
-  z-index: 2;
-  padding: ${props => props.theme.spacing.medium};
-  @media ${props => props.theme.breakpoints.mobile} {
-    margin-top: 2rem;
-  }
-`
-const HeroMessage = styled.h1`
-  font-family: ${props => props.theme.fonts.oswald};
-  font-size: 4rem;
-  line-height: 120%;
-  font-weight: normal;
-  text-transform: uppercase;
-  z-index: 3;
-  opacity: 0.6;
-  @media ${props => props.theme.breakpoints.tablet} {
-    font-size: 4rem;
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    font-size: 2.5rem;
-    text-align: right;
-  }
-`
-const NameContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @media ${props => props.theme.breakpoints.mobile} {
-    flex-direction: column-reverse;
-    align-items: flex-end;
-  }
-`
-
-const Name = styled.h2`
-  font-family: ${props => props.theme.fonts.oswald};
-  font-weight: black;
-  font-size: 4rem;
-  line-height: 120%;
-  z-index: 3;
-  text-transform: uppercase;
-  @media ${props => props.theme.breakpoints.tablet} {
-    font-size: 4rem;
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    font-size: 2rem;
-    text-align: right;
-  }
-`
-
-const Line = styled.div`
-  width: 15rem;
-  height: 0.3rem;
-  background-color: ${props => props.theme.colors.yellow};
-  @media ${props => props.theme.breakpoints.tablet} {
-    width: 5rem;
-    height: 0.2rem;
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 6rem;
-    height: 0.2rem;
   }
 `
 
@@ -123,14 +62,8 @@ const Hero = () => {
   return (
     <HeroContainer>
       <BackgroundVideo source={hero.heroVideo.url} />
-      <TextContainer>
-        <NameContainer>
-          <Name>Paolo Tornabene</Name>
-          <Line />
-        </NameContainer>
-        <HeroMessage>{hero.header}</HeroMessage>
-      </TextContainer>
-      <ProjectsButton style={{ color: state.isDark ? "#fff" : "#010022" }}>
+      <HeroTitle name="Paolo Tornabene" title={hero.header} />
+      <ProjectsButton style={{ color: state.isDark ? "#fff" : "#0a0a0f" }}>
         projects &#8594;
       </ProjectsButton>
     </HeroContainer>

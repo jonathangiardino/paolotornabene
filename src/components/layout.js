@@ -1,8 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import Context from "../store/context"
 
 import Header from "./header"
+import FullPageMenu from "./fullPageMenu"
 
 import "./layout.css"
 
@@ -16,24 +17,28 @@ const Body = styled.div`
   padding: 0;
   height: 100%;
   width: 100%;
+  text-decoration: "none";
+  margin: "0 auto";
+  font-family: "Reem Kufi";
 `
 
 const Layout = ({ children }) => {
   const { state } = useContext(Context)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
       <Body
         style={{
-          backgroundColor: state.isDark ? "#010022" : "#fff",
-          color: state.isDark ? "#fff" : "#010022",
-          textDecoration: "none",
-          margin: "0 auto",
-          fontFamily: "Reem Kufi",
+          backgroundColor: state.isDark ? "#0a0a0f" : "#fff",
+          color: state.isDark ? "#fff" : "#0a0a0f",
         }}
       >
-        <Header />
+        {menuOpen && <FullPageMenu closeMenu={() => setMenuOpen(false)} />}
+        <Header openMenu={() => setMenuOpen(true)} />
+
         <main>{children}</main>
+
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

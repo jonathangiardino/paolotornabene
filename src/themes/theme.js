@@ -5,7 +5,7 @@ export default {
   },
   background: {
     light: "#fff",
-    dark: "#010022",
+    dark: "#0a0a0f",
   },
   fonts: {
     oswald: "Oswald",
