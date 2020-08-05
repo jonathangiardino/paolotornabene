@@ -1,0 +1,29 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.social-icon {
+  transition: all 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  color: #f3c623 !important;
+}
+
+.img-project {
+  transition: all 0.2s ease-in-out;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  width: 100%;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.img-project:hover {
+  opacity: 0.5;
+}

@@ -19,9 +19,9 @@ module.exports = {
         isResettingCSS: false,
       },
     },
-    // `gatsby-image-graphql-schema`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `graphcms-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

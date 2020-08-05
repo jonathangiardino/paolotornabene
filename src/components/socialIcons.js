@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 import Context from "../store/context"
 
-import { Box } from "@chakra-ui/core"
 import { FaInstagram } from "react-icons/fa"
 import { FaVimeoV } from "react-icons/fa"
 import { FaYoutube } from "react-icons/fa"
@@ -15,31 +14,40 @@ const IconsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `
+const IconLink = styled.a`
+  cursor: pointer;
+  font-size: 28px;
+`
 
 const SocialIcons = () => {
   const { state } = useContext(Context)
   return (
     <IconsWrapper>
-      <Box
-        as={FaInstagram}
-        size="32px"
-        color={state.isDark ? "#fff" : "#0a0a0f"}
-      />
-      <Box
-        as={FaVimeoV}
-        size="32px"
-        color={state.isDark ? "#fff" : "#0a0a0f"}
-      />
-      <Box
-        as={FaYoutube}
-        size="32px"
-        color={state.isDark ? "#fff" : "#0a0a0f"}
-      />
-      <Box
-        as={FaLinkedinIn}
-        size="32px"
-        color={state.isDark ? "#fff" : "#0a0a0f"}
-      />
+      <IconLink>
+        <FaInstagram
+          className="social-icon"
+          color={state.isDark ? "#fff" : "#0a0a0f"}
+        />
+      </IconLink>
+      <IconLink>
+        <FaVimeoV
+          className="social-icon"
+          color={state.isDark ? "#fff" : "#0a0a0f"}
+        />
+      </IconLink>
+      <IconLink>
+        <FaYoutube
+          className="social-icon"
+          color={state.isDark ? "#fff" : "#0a0a0f"}
+        />
+      </IconLink>
+      <IconLink>
+        {" "}
+        <FaLinkedinIn
+          className="social-icon"
+          color={state.isDark ? "#fff" : "#0a0a0f"}
+        />
+      </IconLink>
     </IconsWrapper>
   )
 }

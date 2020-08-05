@@ -29,6 +29,11 @@ const ProjectsButton = styled.a`
   letter-spacing: 0.5rem;
   writing-mode: vertical-rl;
   padding: ${props => props.theme.spacing.xsmall};
+  cursor: pointer;
+  z-index: 5;
+  &:hover {
+    color: ${props => props.theme.colors.yellow} !important;
+  }
   @media ${props => props.theme.breakpoints.tablet} {
     position: relative;
     writing-mode: horizontal-tb;

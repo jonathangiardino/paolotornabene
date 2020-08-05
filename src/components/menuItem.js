@@ -13,10 +13,11 @@ const ItemName = styled.h2`
   font-size: 4rem;
   line-height: 120%;
   text-transform: uppercase;
-  transition: all 0.6 ease-in-out;
+  transition: all 0.2s ease-in-out;
   &:hover {
     color: ${props => props.theme.colors.yellow} !important;
     text-decoration: line-through;
+    transform: translateX(0.2rem);
   }
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: 4rem;

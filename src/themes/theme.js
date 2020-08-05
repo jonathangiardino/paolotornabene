@@ -16,7 +16,7 @@ export default {
     small: "1.2rem",
     smallTitle: "1.75rem",
     title: "2rem",
-    hero: "3rem",
+    bigTitle: "3rem",
   },
   fontWeight: {
     light: "300",

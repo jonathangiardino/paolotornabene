@@ -17,7 +17,7 @@ const HeroMessage = styled.h1`
   z-index: 3;
   opacity: 0.6;
   @media ${props => props.theme.breakpoints.tablet} {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   @media ${props => props.theme.breakpoints.mobile} {
     font-size: 2.5rem;
@@ -42,7 +42,7 @@ const Name = styled.h2`
   z-index: 3;
   text-transform: uppercase;
   @media ${props => props.theme.breakpoints.tablet} {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   @media ${props => props.theme.breakpoints.mobile} {
     font-size: 2rem;
