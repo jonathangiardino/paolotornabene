@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import ProjectCard from "../components/projectCard"
+import ProjectCard from "./projectCard"
 
 const ProjectsGallery = () => {
   const data = useStaticQuery(graphql`

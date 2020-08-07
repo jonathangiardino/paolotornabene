@@ -1,10 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import Link from "Gatsby"
+import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
-  width: 80%;
+  width: 40%;
   margin: 3rem;
   position: relative;
 
@@ -28,7 +28,9 @@ const BoxImage = styled.div`
 `
 
 const ProjectTitle = styled.h1`
-  font-size: 5rem;
+  max-width: 18ch;
+  line-height: 1.2;
+  font-size: 4rem;
   font-family: ${props => props.theme.fonts.oswald};
   position: absolute;
   top: 10%;
@@ -52,7 +54,7 @@ const ProjectButton = styled.div`
   bottom: -2rem;
   right: -1rem;
   z-index: 3;
-  width: 16rem;
+  width: 14rem;
   height: 5rem;
   font-size: 2rem;
   font-family: ${props => props.theme.fonts.oswald};

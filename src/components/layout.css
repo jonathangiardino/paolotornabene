@@ -29,5 +29,5 @@
 }
 .projectButton:hover .hoveringArrow {
   opacity: 1;
-  transform: translateX(220%);
+  transform: translateX(230%);
 }
