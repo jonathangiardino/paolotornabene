@@ -23,7 +23,7 @@ const MenuWrapper = styled.div`
 const Close = styled.div`
   position: absolute;
   top: 3.3rem;
-  right: 3rem;
+  right: 3.5rem;
   cursor: pointer;
   @media ${props => props.theme.breakpoints.mobile} {
     top: 2rem;

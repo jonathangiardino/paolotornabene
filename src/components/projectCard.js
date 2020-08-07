@@ -62,6 +62,7 @@ const ProjectButton = styled.div`
   color: #0a0a0f;
   border: none;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
   @media ${props => props.theme.breakpoints.tablet} {
     width: 12rem;
     height: 4rem;

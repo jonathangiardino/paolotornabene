@@ -1,7 +1,16 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 import ProjectCard from "./projectCard"
+
+const Section = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 6rem 0;
+`
 
 const ProjectsGallery = () => {
   const data = useStaticQuery(graphql`
@@ -32,14 +41,7 @@ const ProjectsGallery = () => {
   } = data
 
   return (
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap",
-      }}
-    >
+    <Section>
       {films.map(film => {
         return (
           <ProjectCard
@@ -48,7 +50,7 @@ const ProjectsGallery = () => {
           />
         )
       })}
-    </div>
+    </Section>
   )
 }
 

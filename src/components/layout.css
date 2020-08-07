@@ -31,3 +31,7 @@
   opacity: 1;
   transform: translateX(230%);
 }
+
+.projectButton:hover {
+  padding-right: 1.6rem;
+}
