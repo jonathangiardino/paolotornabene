@@ -10476,6 +10476,11 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
+pattern.css@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/pattern.css/-/pattern.css-1.0.0.tgz#91ee9e4ca99300c8ab1a47348e325333840d9f4b"
+  integrity sha512-2bW2rCCdLGgvJPpiSJGrg44onxRWTMQpn6tooAayomsCHiso3nehlp5OugNYHSXxYuFfQ1vtDXtGbq6H206qLw==
+
 pbkdf2@^3.0.3:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/pbkdf2/-/pbkdf2-3.1.1.tgz#cb8724b0fada984596856d1a6ebafd3584654b94"
@@ -12298,6 +12303,11 @@ shell-quote@1.6.1:
     array-map "~0.0.0"
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
+
+shorthandcss@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/shorthandcss/-/shorthandcss-1.1.1.tgz#323df4e15ffc54e7bf27a6643d9c1107b924c9f1"
+  integrity sha512-xmQGhivA4U5kjLpEBnJ+j7ezHBaugHpmgmPQ+0Pa2RM3J4F5AOEYXPxSJ0vaemyx41LKzNWk6rx0zEoCLQIpfw==
 
 side-channel@^1.0.2:
   version "1.0.2"

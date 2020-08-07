@@ -22,6 +22,8 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `graphcms-image`,
+    `pattern.css`,
+    `shorthandcss`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

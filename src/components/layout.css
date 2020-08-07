@@ -21,9 +21,13 @@
   display: block;
   width: 100%;
   opacity: 0.4;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .img-project:hover {
   opacity: 0.8;
+}
+.projectButton:hover .hoveringArrow {
+  opacity: 1;
+  transform: translateX(220%);
 }
