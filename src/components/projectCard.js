@@ -9,10 +9,10 @@ const ProjectCardContainer = styled.div`
   position: relative;
 
   @media ${props => props.theme.breakpoints.tablet} {
-    width: 100%;
+    width: 90%;
   }
   @media ${props => props.theme.breakpoints.mobile} {
-    width: 100%;
+    width: 90%;
     margin: 2rem 3rem;
   }
 `
@@ -53,7 +53,7 @@ const ProjectCard = ({ title, imageSrc, path }) => {
   return (
     <ProjectCardContainer>
       <Link
-        to="/"
+        to={`/films/${path}`}
         style={{
           width: " 100% ",
         }}

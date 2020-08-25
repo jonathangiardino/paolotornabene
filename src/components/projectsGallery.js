@@ -47,6 +47,7 @@ const ProjectsGallery = () => {
           <ProjectCard
             title={film.title}
             imageSrc={film.imageCover.node.childImageSharp.fluid}
+            path={film.id}
           />
         )
       })}

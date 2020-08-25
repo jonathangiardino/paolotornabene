@@ -30,3 +30,29 @@ exports.createResolvers = ({
 
   createResolvers(resolvers)
 }
+
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
+  const {
+    data: {
+      gcms: { films },
+    },
+  } = await graphql(`
+    {
+      gcms {
+        films {
+          id
+        }
+      }
+    }
+  `)
+
+  films.forEach(({ id }) =>
+    createPage({
+      path: `/films/${id}`,
+      component: require.resolve(`./src/templates/film.js`),
+      context: {
+        id,
+      },
+    })
+  )
+}
