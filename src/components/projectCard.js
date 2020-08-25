@@ -4,8 +4,8 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
-  width: 40%;
-  margin: 3rem;
+  width: 30%;
+  margin: 1rem;
   position: relative;
 
   @media ${props => props.theme.breakpoints.tablet} {
@@ -21,64 +21,32 @@ const BoxImage = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.9);
   &:hover .img-project {
     transform: scale(1);
+  }
+  &:hover .project-title {
+    opacity: 1;
   }
 `
 
 const ProjectTitle = styled.h1`
-  max-width: 18ch;
+  opacity: 0;
   line-height: 1.2;
-  font-size: 4rem;
+  font-size: 2rem;
   font-family: ${props => props.theme.fonts.oswald};
+  text-align: center;
   position: absolute;
-  top: 10%;
-  left: -2rem;
-  z-index: 2;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 0;
   transition: all 0.2s ease-in-out;
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: ${props => props.theme.fontSize.title};
-    right: -0.5rem;
   }
   @media ${props => props.theme.breakpoints.mobile} {
     font-size: ${props => props.theme.fontSize.smallTitle};
   }
-`
-
-const ProjectButton = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: -2rem;
-  right: -1rem;
-  z-index: 3;
-  width: 14rem;
-  height: 5rem;
-  font-size: 2rem;
-  font-family: ${props => props.theme.fonts.oswald};
-  background-color: ${props => props.theme.colors.yellow};
-  color: #0a0a0f;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  @media ${props => props.theme.breakpoints.tablet} {
-    width: 12rem;
-    height: 4rem;
-    font-size: 1.5rem;
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 12rem;
-    height: 4rem;
-    font-size: 1.5rem;
-  }
-`
-
-const HoveringArrow = styled.span`
-  position: absolute;
-  opacity: 0;
-  transition: 0.2s all ease-out;
 `
 
 const ProjectCard = ({ title, imageSrc, path }) => {
@@ -90,17 +58,10 @@ const ProjectCard = ({ title, imageSrc, path }) => {
           width: " 100% ",
         }}
       >
-        <ProjectTitle className="project-title">{title}</ProjectTitle>
         <BoxImage>
+          <ProjectTitle className="project-title">{title}</ProjectTitle>
           <Img className="img-project" fluid={imageSrc} />
         </BoxImage>
-      </Link>
-      <Link to="/">
-        {" "}
-        <ProjectButton className="projectButton">
-          SEE MORE{" "}
-          <HoveringArrow className="hoveringArrow">&#8594;</HoveringArrow>
-        </ProjectButton>
       </Link>
     </ProjectCardContainer>
   )

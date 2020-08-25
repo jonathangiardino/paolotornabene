@@ -20,18 +20,9 @@
   max-width: 100%;
   display: block;
   width: 100%;
-  opacity: 0.4;
   transform: scale(1.05);
 }
 
 .img-project:hover {
-  opacity: 0.8;
-}
-.projectButton:hover .hoveringArrow {
-  opacity: 1;
-  transform: translateX(230%);
-}
-
-.projectButton:hover {
-  padding-right: 1.6rem;
+  opacity: 0.1;
 }

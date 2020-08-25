@@ -10,7 +10,7 @@ const TextContainer = styled.div`
 `
 const HeroMessage = styled.h1`
   font-family: ${props => props.theme.fonts.oswald};
-  font-size: 4rem;
+  font-size: 4.5rem;
   line-height: 120%;
   font-weight: normal;
   text-transform: uppercase;
@@ -37,7 +37,7 @@ const NameContainer = styled.div`
 const Name = styled.h2`
   font-family: ${props => props.theme.fonts.oswald};
   font-weight: black;
-  font-size: 4rem;
+  font-size: 4.5rem;
   line-height: 120%;
   z-index: 3;
   text-transform: uppercase;
@@ -50,27 +50,11 @@ const Name = styled.h2`
   }
 `
 
-export const Line = styled.div`
-  width: 15rem;
-  height: 0.3rem;
-  background-color: ${props => props.theme.colors.yellow};
-  @media ${props => props.theme.breakpoints.tablet} {
-    width: 5rem;
-    height: 0.2rem;
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 6rem;
-    height: 0.2rem;
-    margin-bottom: 1rem;
-  }
-`
-
 const HeroTitle = ({ name, title }) => {
   return (
     <TextContainer>
       <NameContainer>
         <Name>{name}</Name>
-        <Line />
       </NameContainer>
       <HeroMessage>{title}</HeroMessage>
     </TextContainer>

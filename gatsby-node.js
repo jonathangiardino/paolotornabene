@@ -1,11 +1,3 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
-
 // NOTE: This function creates nodes for images coming from Graphcms in order to use Gatsby Image
 
 const { createRemoteFileNode } = require("gatsby-source-filesystem")

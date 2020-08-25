@@ -34,10 +34,6 @@ const ProjectsButton = styled.a`
   &:hover {
     color: ${props => props.theme.colors.yellow} !important;
   }
-  @media ${props => props.theme.breakpoints.tablet} {
-    position: relative;
-    writing-mode: horizontal-tb;
-  }
   @media ${props => props.theme.breakpoints.mobile} {
     position: relative;
     writing-mode: horizontal-tb;

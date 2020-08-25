@@ -9,13 +9,16 @@ const VideoContainer = styled.div`
   right: 0;
   text-align: center;
   z-index: 1;
-  opacity: 0.3;
+  opacity: 0.5;
   @media ${props => props.theme.breakpoints.mobile} {
     top: 0;
   }
 `
 const VideoSource = styled.video`
-  width: 45%;
+  width: 55%;
+  @media ${props => props.theme.breakpoints.large} {
+    width: 30%;
+  }
   @media ${props => props.theme.breakpoints.tablet} {
     width: 60%;
   }
@@ -24,7 +27,7 @@ const VideoSource = styled.video`
   }
 `
 
-const BackgroundVideo = ({source}) => {
+const BackgroundVideo = ({ source }) => {
   return (
     <VideoContainer>
       <VideoSource autoPlay muted loop>
