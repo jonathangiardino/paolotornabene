@@ -31,8 +31,10 @@ const ProjectsButton = styled.a`
   padding: ${props => props.theme.spacing.xsmall};
   cursor: pointer;
   z-index: 5;
+  transition: all 0.2s ease-in-out;
+  color: ${props => props.theme.colors.yellow} !important;
   &:hover {
-    color: ${props => props.theme.colors.yellow} !important;
+    transform: translateY(0.5rem);
   }
   @media ${props => props.theme.breakpoints.mobile} {
     position: relative;

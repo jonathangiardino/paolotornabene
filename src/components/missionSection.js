@@ -20,7 +20,7 @@ const MissionText = styled.h1`
 `
 
 const ImageContainer = styled.div`
-  width: 37%;
+  width: 30%;
   padding: 1rem;
   @media ${props => props.theme.breakpoints.large} {
     width: 25%;
@@ -37,6 +37,10 @@ const AboutMeButton = styled(Link)`
   font-size: ${props => props.theme.fontSize.smallTitle};
   text-transform: uppercase;
   font-family: ${props => props.theme.fonts.oswald};
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: translateX(0.5rem);
+  }
 `
 
 const MissionSection = () => {
