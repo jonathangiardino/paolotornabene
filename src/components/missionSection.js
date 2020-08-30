@@ -12,8 +12,9 @@ const Section = styled.section`
 `
 
 const MissionText = styled.h1`
-  max-width: 24ch;
-  padding: 2rem 0 1rem;
+  font-family: ${props => props.theme.fonts.oswald};
+  text-transform: uppercase;
+  padding: 2rem 0 0;
   font-size: 3rem;
   font-weight: normal;
   text-align: center;

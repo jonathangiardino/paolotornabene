@@ -58,10 +58,13 @@ const Film = ({ data }) => {
       <FilmPageWrapper>
         <ProjectWrapper>
           <BackLink to="/">&#8592; Back</BackLink>
+
           <Title>
             {film.title} | {film.date}
           </Title>
+
           {film.videoFile.url && <Video videoFile={film.videoFile.url} />}
+
           <TagWrapper>
             {film.tags.map(tag => (
               <Tag>#{tag} </Tag>
@@ -73,6 +76,7 @@ const Film = ({ data }) => {
               dangerouslySetInnerHTML={{ __html: film.description.html }}
             ></Description>
           )}
+
           <Img fluid={data.rectangle.childImageSharp.fluid} />
         </ProjectWrapper>
       </FilmPageWrapper>
