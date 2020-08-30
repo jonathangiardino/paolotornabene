@@ -4,21 +4,19 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
-  width: 30%;
+  width: 60%;
   margin: 1rem;
   position: relative;
-
   @media ${props => props.theme.breakpoints.tablet} {
     width: 90%;
   }
   @media ${props => props.theme.breakpoints.mobile} {
     width: 90%;
-    margin: 2rem 3rem;
   }
 `
 
 const BoxImage = styled.div`
-  width: 100%;
+  height: 300px;
   position: relative;
   overflow: hidden;
   &:hover .img-project {
@@ -26,6 +24,9 @@ const BoxImage = styled.div`
   }
   &:hover .project-title {
     opacity: 1;
+  }
+  @media ${props => props.theme.breakpoints.mobile} {
+    height: 200px;
   }
 `
 
@@ -35,6 +36,7 @@ const ProjectTitle = styled.h1`
   font-size: 2rem;
   font-family: ${props => props.theme.fonts.oswald};
   text-align: center;
+  text-transform: uppercase;
   position: absolute;
   bottom: 50%;
   left: 50%;
@@ -49,7 +51,7 @@ const ProjectTitle = styled.h1`
   }
 `
 
-const ProjectCard = ({ title, imageSrc, path }) => {
+const ProjectCard = ({ title, imageSrc, path, date }) => {
   return (
     <ProjectCardContainer>
       <Link
@@ -59,7 +61,10 @@ const ProjectCard = ({ title, imageSrc, path }) => {
         }}
       >
         <BoxImage>
-          <ProjectTitle className="project-title">{title}</ProjectTitle>
+          <ProjectTitle className="project-title">
+            {title} | {date}
+          </ProjectTitle>
+
           <Img className="img-project" fluid={imageSrc} />
         </BoxImage>
       </Link>

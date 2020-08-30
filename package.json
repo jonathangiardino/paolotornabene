@@ -26,6 +26,7 @@
     "graphcms-image": "^1.1.0-beta4",
     "local-storage-fallback": "^4.1.1",
     "pattern.css": "^1.0.0",
+    "plyr": "^3.6.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

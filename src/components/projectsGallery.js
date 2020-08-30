@@ -16,11 +16,11 @@ const ProjectsGallery = () => {
   const data = useStaticQuery(graphql`
     query Films {
       gcms {
-        films {
+        films(orderBy: createdAt_DESC, last: 5) {
           id
           title
-          vimeoId
           tags
+          date
           imageCover {
             url
             node {
@@ -48,6 +48,7 @@ const ProjectsGallery = () => {
             title={film.title}
             imageSrc={film.imageCover.node.childImageSharp.fluid}
             path={film.id}
+            date={film.date}
           />
         )
       })}
