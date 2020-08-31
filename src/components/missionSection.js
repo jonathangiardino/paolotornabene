@@ -34,16 +34,6 @@ const ImageContainer = styled.div`
   }
 `
 
-const AboutMeButton = styled(Link)`
-  font-size: ${props => props.theme.fontSize.smallTitle};
-  text-transform: uppercase;
-  font-family: ${props => props.theme.fonts.oswald};
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    transform: translateX(0.5rem);
-  }
-`
-
 const MissionSection = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -78,7 +68,7 @@ const MissionSection = () => {
       </ImageContainer>
 
       <MissionText>{mission.missionText}</MissionText>
-      <AboutMeButton to="/">About me &#8594;</AboutMeButton>
+      {/* <AboutMeButton to="/">About me &#8594;</AboutMeButton> */}
     </Section>
   )
 }

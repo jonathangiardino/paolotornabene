@@ -17,7 +17,7 @@ const VideoContainer = styled.div`
 const VideoSource = styled.video`
   width: 55%;
   @media ${props => props.theme.breakpoints.large} {
-    width: 30%;
+    width: 40%;
   }
   @media ${props => props.theme.breakpoints.tablet} {
     width: 60%;

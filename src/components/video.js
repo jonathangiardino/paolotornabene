@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 const VideoContainer = styled.video`
   width: 100%;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `
 
 const Video = ({ videoFile }) => (

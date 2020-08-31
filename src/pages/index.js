@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Hero from "../components/hero"
 import MissionSection from "../components/missionSection"
 import ProjectsGallery from "../components/projectsGallery"
+import AboutSection from "../components/aboutSection"
 
 const IndexPage = () => {
   return (
@@ -14,6 +15,7 @@ const IndexPage = () => {
       <Hero />
       <MissionSection />
       <ProjectsGallery />
+      <AboutSection />
       <Link to="/page-2/">Go to page 2</Link> <br />
     </Layout>
   )

@@ -24,6 +24,7 @@ module.exports = {
     `graphcms-image`,
     `pattern.css`,
     `shorthandcss`,
+    `@reach/router`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
