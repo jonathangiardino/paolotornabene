@@ -13,7 +13,7 @@ const FilmPageWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 20%;
+  padding-bottom: 5%;
 `
 const ProjectWrapper = styled.div`
   padding: 10rem 0 0 0;
@@ -94,8 +94,6 @@ const Film = ({ data }) => {
               dangerouslySetInnerHTML={{ __html: film.description.html }}
             ></Description>
           )}
-
-          <Img fluid={data.rectangle.childImageSharp.fluid} />
         </ProjectWrapper>
       </FilmPageWrapper>
     </Layout>
