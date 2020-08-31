@@ -4,6 +4,7 @@ import Context from "../store/context"
 
 import Header from "./header"
 import FullPageMenu from "./fullPageMenu"
+import Footer from "./footer"
 
 import "./layout.css"
 
@@ -39,12 +40,7 @@ const Layout = ({ children }) => {
 
         <main>{children}</main>
 
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a> by{" "}
-          <a href="https://www.jonathangiardino.com">Jonathan Giardino</a>
-        </footer>
+        <Footer linkColor={state.isDark ? "#fff" : "#0a0a0f"} />
       </Body>
     </>
   )

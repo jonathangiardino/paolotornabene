@@ -1,8 +1,6 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
-
-import Context from "../store/context"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 import BackgroundVideo from "./backgroundVideo"
 import HeroTitle from "./heroTitle"
@@ -21,7 +19,7 @@ const HeroContainer = styled.div`
   }
 `
 
-const ProjectsButton = styled.a`
+const ProjectsButton = styled(Link)`
   font-weight: black;
   position: absolute;
   right: 3%;
@@ -43,7 +41,7 @@ const ProjectsButton = styled.a`
   }
 `
 
-const Hero = () => {
+const Hero = ({ projectSection }) => {
   const data = useStaticQuery(graphql`
     query MyQuery {
       gcms {
@@ -56,7 +54,6 @@ const Hero = () => {
       }
     }
   `)
-  const { state } = useContext(Context)
 
   const {
     gcms: { hero },
@@ -66,9 +63,7 @@ const Hero = () => {
     <HeroContainer>
       <BackgroundVideo source={hero.heroVideo.url} />
       <HeroTitle name="Paolo Tornabene" title={hero.header} />
-      <ProjectsButton style={{ color: state.isDark ? "#fff" : "#0a0a0f" }}>
-        projects &#8594;
-      </ProjectsButton>
+      <ProjectsButton to="/#projects">Films &#8594;</ProjectsButton>
     </HeroContainer>
   )
 }

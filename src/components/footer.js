@@ -1,0 +1,98 @@
+import React from "react"
+import styled from "styled-components"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
+
+import SocialIcons from "./socialIcons"
+
+const FooterWrapper = styled.footer`
+  width: 100vw;
+  padding: ${props => props.theme.spacing.large} 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const FooterMenu = styled.div`
+  padding: ${props => props.theme.spacing.medium} 0;
+`
+
+const FooterLink = styled(Link)`
+  width: auto;
+  display: block;
+  font-family: ${props => props.theme.fonts.oswald};
+  font-size: 2.5rem;
+  line-height: 120%;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: ${props => props.theme.colors.yellow} !important;
+    text-decoration: line-through;
+  }
+  @media ${props => props.theme.breakpoints.mobile} {
+    text-align: center;
+  }
+`
+
+const FooterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  @media ${props => props.theme.breakpoints.mobile} {
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+const Divider = styled.div`
+  width: 100%;
+`
+
+const Footer = ({ linkColor }) => {
+  const links = [
+    { linkText: "About", path: "/" },
+    { linkText: "Films", path: "/" },
+    { linkText: "Stills", path: "/" },
+    { linkText: "Clients", path: "/" },
+    { linkText: "Contact", path: "/" },
+    { linkText: "Hire me", path: "/" },
+  ]
+
+  const data = useStaticQuery(graphql`
+    query {
+      divider: file(relativePath: { eq: "footerDivider.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <div>
+      <FooterWrapper>
+        <FooterContainer>
+          <Divider>
+            <Img fluid={data.divider.childImageSharp.fluid} />
+          </Divider>
+          <FooterMenu>
+            {links.map(link => (
+              <FooterLink style={{ color: `${linkColor}` }} to={link.path}>
+                {link.linkText}
+              </FooterLink>
+            ))}
+          </FooterMenu>
+          <SocialIcons />© {new Date().getFullYear()}
+        </FooterContainer>
+      </FooterWrapper>
+    </div>
+  )
+}
+
+export default Footer

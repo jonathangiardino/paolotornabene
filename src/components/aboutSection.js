@@ -38,6 +38,7 @@ const LinkText = styled(AboutText)`
   color: ${props => props.theme.colors.yellow};
 `
 const AboutPageLink = styled(Link)`
+  transition: all 0.2s ease-in-out;
   &:hover {
     text-decoration: line-through;
     opacity: 0.7;
@@ -84,7 +85,7 @@ const AboutSection = () => {
     gcms: { about },
   } = data
   return (
-    <Section>
+    <Section id="about">
       <AboutWrapper>
         {about.aboutSectionSummary.map(item => (
           <AboutText>

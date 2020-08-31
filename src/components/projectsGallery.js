@@ -41,7 +41,7 @@ const ProjectsGallery = () => {
   } = data
 
   return (
-    <Section>
+    <Section id="projects">
       {films.map(film => {
         return (
           <ProjectCard
