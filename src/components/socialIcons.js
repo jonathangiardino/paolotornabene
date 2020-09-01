@@ -10,9 +10,12 @@ import { FaLinkedinIn } from "react-icons/fa"
 
 const IconsWrapper = styled.div`
   padding: ${props => props.theme.spacing.medium} 0;
-  width: 300px;
+  width: 260px;
   display: flex;
   justify-content: space-between;
+  @media ${props => props.theme.breakpoints.tablet} {
+    margin: 0 auto;
+  }
 `
 const IconLink = styled.a`
   cursor: pointer;

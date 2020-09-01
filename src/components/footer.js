@@ -20,9 +20,9 @@ const FooterMenu = styled.div`
 
 const FooterLink = styled(Link)`
   width: auto;
-  display: block;
+  padding: 0 ${props => props.theme.spacing.xsmall} 0 0;
   font-family: ${props => props.theme.fonts.oswald};
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   line-height: 120%;
   font-weight: normal;
   text-transform: uppercase;
@@ -34,6 +34,7 @@ const FooterLink = styled(Link)`
   }
   @media ${props => props.theme.breakpoints.mobile} {
     text-align: center;
+    display: block;
   }
 `
 
@@ -48,8 +49,33 @@ const FooterContainer = styled.div`
   }
 `
 
+const FlexiDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media ${props => props.theme.breakpoints.tablet} {
+    text-align: center;
+    display: block;
+  }
+  @media ${props => props.theme.breakpoints.mobile} {
+    text-align: center;
+    display: block;
+  }
+`
+
 const Divider = styled.div`
   width: 100%;
+`
+const Small = styled.small`
+  text-align: center;
+  font-family: ${props => props.theme.fonts.oswald};
+  text-transform: uppercase;
+`
+
+const Span = styled.span`
+  color: ${props => props.theme.colors.yellow};
+  @media ${props => props.theme.breakpoints.mobile} {
+    display: none;
+  }
 `
 
 const Footer = ({ linkColor }) => {
@@ -81,14 +107,27 @@ const Footer = ({ linkColor }) => {
           <Divider>
             <Img fluid={data.divider.childImageSharp.fluid} />
           </Divider>
-          <FooterMenu>
-            {links.map(link => (
-              <FooterLink style={{ color: `${linkColor}` }} to={link.path}>
-                {link.linkText}
-              </FooterLink>
-            ))}
-          </FooterMenu>
-          <SocialIcons />© {new Date().getFullYear()}
+          <FlexiDiv>
+            <FooterMenu>
+              {links.map(link => (
+                <FooterLink style={{ color: `${linkColor}` }} to={link.path}>
+                  {link.linkText}
+                </FooterLink>
+              ))}
+            </FooterMenu>
+            <SocialIcons />
+          </FlexiDiv>
+          <Small>
+            © {new Date().getFullYear()} Paolo Tornabene <Span>*</Span> Built
+            with{" "}
+            <a href="https://gatsbyjs.com" target="_blank">
+              Gatsby
+            </a>{" "}
+            by{" "}
+            <a href="https://jonathangiardino.com" target="_blank">
+              Jonathan Giardino
+            </a>
+          </Small>
         </FooterContainer>
       </FooterWrapper>
     </div>
