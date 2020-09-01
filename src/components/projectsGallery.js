@@ -18,7 +18,6 @@ const ProjectsGallery = () => {
       gcms {
         films(orderBy: createdAt_DESC, last: 5) {
           id
-          slug
           title
           tags
           date
@@ -36,6 +35,7 @@ const ProjectsGallery = () => {
       }
     }
   `)
+  var slugify = require("slugify")
 
   const {
     gcms: { films },
@@ -48,7 +48,7 @@ const ProjectsGallery = () => {
           <ProjectCard
             title={film.title}
             imageSrc={film.imageCover.node.childImageSharp.fluid}
-            path={film.slug}
+            path={slugify(film.title, { lower: true })}
             date={film.date}
           />
         )

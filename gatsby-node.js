@@ -1,5 +1,6 @@
-// NOTE: This function creates nodes for images coming from Graphcms in order to use Gatsby Image
+var slugify = require("slugify")
 
+// NOTE: This function creates nodes for images coming from Graphcms in order to use Gatsby Image
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 
 exports.createResolvers = ({
@@ -40,18 +41,20 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     {
       gcms {
         films {
-          slug
+          id
+          title
         }
       }
     }
   `)
 
-  films.forEach(({ slug }) =>
+  films.forEach(({ title, id }) =>
     createPage({
-      path: `/films/${slug}`,
+      path: `/films/${slugify(title, { lower: true })}`,
       component: require.resolve(`./src/templates/film.js`),
       context: {
-        slug,
+        title,
+        id,
       },
     })
   )

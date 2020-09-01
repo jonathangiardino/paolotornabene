@@ -103,14 +103,13 @@ const Film = ({ data }) => {
 export default Film
 
 export const query = graphql`
-  query FilmAndImage($slug: String!) {
+  query FilmAndImage($id: ID!) {
     gcms {
-      film(where: { slug: $slug }) {
+      film(where: { id: $id }) {
         videoFile {
           url
         }
         id
-        slug
         title
         tags
         date
