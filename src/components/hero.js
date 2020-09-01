@@ -4,6 +4,7 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 
 import BackgroundVideo from "./backgroundVideo"
 import HeroTitle from "./heroTitle"
+import SocialIcons from "./socialIcons"
 
 const HeroContainer = styled.div`
   width: 100vw;
@@ -41,6 +42,13 @@ const ProjectsButton = styled(Link)`
   }
 `
 
+const AbsoluteContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+`
+
 const Hero = ({ projectSection }) => {
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -64,6 +72,9 @@ const Hero = ({ projectSection }) => {
       <BackgroundVideo source={hero.heroVideo.url} />
       <HeroTitle name="Paolo Tornabene" title={hero.header} />
       <ProjectsButton to="/#projects">Films &#8594;</ProjectsButton>
+      <AbsoluteContainer>
+        <SocialIcons />
+      </AbsoluteContainer>
     </HeroContainer>
   )
 }
