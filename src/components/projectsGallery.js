@@ -18,6 +18,7 @@ const ProjectsGallery = () => {
       gcms {
         films(orderBy: createdAt_DESC, last: 5) {
           id
+          slug
           title
           tags
           date
@@ -47,7 +48,7 @@ const ProjectsGallery = () => {
           <ProjectCard
             title={film.title}
             imageSrc={film.imageCover.node.childImageSharp.fluid}
-            path={film.id}
+            path={film.slug}
             date={film.date}
           />
         )

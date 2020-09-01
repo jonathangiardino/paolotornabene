@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+
 import { navigate } from "@reach/router"
 
 import Layout from "../components/layout"
@@ -103,13 +103,14 @@ const Film = ({ data }) => {
 export default Film
 
 export const query = graphql`
-  query FilmAndImage($id: ID!) {
+  query FilmAndImage($slug: String!) {
     gcms {
-      film(where: { id: $id }) {
+      film(where: { slug: $slug }) {
         videoFile {
           url
         }
         id
+        slug
         title
         tags
         date

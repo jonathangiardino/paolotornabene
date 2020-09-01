@@ -120,11 +120,15 @@ const Footer = ({ linkColor }) => {
           <Small>
             © {new Date().getFullYear()} Paolo Tornabene <Span>*</Span> Built
             with{" "}
-            <a href="https://gatsbyjs.com" target="_blank">
+            <a href="http://gatsbyjs.com" target="_blank" rel="noreferrer">
               Gatsby
             </a>{" "}
             by{" "}
-            <a href="https://jonathangiardino.com" target="_blank">
+            <a
+              href="http://jonathangiardino.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               Jonathan Giardino
             </a>
           </Small>

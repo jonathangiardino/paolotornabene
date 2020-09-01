@@ -14,6 +14,7 @@ const ItemName = styled.h2`
   line-height: 120%;
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
+  text-align: center;
   &:hover {
     color: ${props => props.theme.colors.yellow} !important;
     text-decoration: line-through;

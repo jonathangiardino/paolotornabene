@@ -40,18 +40,18 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     {
       gcms {
         films {
-          id
+          slug
         }
       }
     }
   `)
 
-  films.forEach(({ id }) =>
+  films.forEach(({ slug }) =>
     createPage({
-      path: `/films/${id}`,
+      path: `/films/${slug}`,
       component: require.resolve(`./src/templates/film.js`),
       context: {
-        id,
+        slug,
       },
     })
   )

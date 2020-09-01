@@ -35,8 +35,10 @@ const Layout = ({ children }) => {
           color: state.isDark ? "#fff" : "#0a0a0f",
         }}
       >
-        {menuOpen && <FullPageMenu closeMenu={() => setMenuOpen(false)} />}
-        <Header openMenu={() => setMenuOpen(true)} />
+        {menuOpen && (
+          <FullPageMenu closeMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
+        )}
+        <Header openMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
 
         <main>{children}</main>
 
