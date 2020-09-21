@@ -79,10 +79,6 @@ const FullPageMenu = ({ closeMenu }) => {
       route: "/films",
     },
     {
-      itemName: "Stills",
-      route: "/stills",
-    },
-    {
       itemName: "Clients",
       route: "/clients",
     },

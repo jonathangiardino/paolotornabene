@@ -6,6 +6,7 @@ import Hero from "../components/hero"
 import MissionSection from "../components/missionSection"
 import ProjectsGallery from "../components/projectsGallery"
 import AboutSection from "../components/aboutSection"
+import ClientsSection from "../components/clientsSection"
 
 const IndexPage = () => {
   return (
@@ -14,6 +15,7 @@ const IndexPage = () => {
       <Hero />
       <MissionSection />
       <ProjectsGallery />
+      <ClientsSection />
       <AboutSection />
     </Layout>
   )
