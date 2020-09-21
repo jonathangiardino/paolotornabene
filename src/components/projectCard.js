@@ -26,7 +26,7 @@ const BoxImage = styled.div`
     opacity: 1;
   }
   @media ${props => props.theme.breakpoints.mobile} {
-    height: 200px;
+    height: 160px;
   }
 `
 

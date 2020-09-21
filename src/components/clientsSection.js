@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
+
+import Context from "../store/context"
 
 const Section = styled.section`
   display: flex;
@@ -13,13 +15,13 @@ const Section = styled.section`
 const ClientsContainer = styled.div`
   width: 60%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 `
 
 const LogoWrapper = styled.div`
-  width: 13rem;
+  width: 11rem;
   margin: 3rem 2rem;
 `
 
@@ -59,13 +61,21 @@ const ClientsSection = () => {
     gcms: { clients },
   } = data
 
+  const { state } = useContext(Context)
+
   return (
     <Section>
       <ClientsContainer>
         {clients.map(client => {
           return (
             <LogoWrapper>
-              <Img fluid={client.logoDarkMode.node.childImageSharp.fluid} />
+              <Img
+                fluid={
+                  state.isDark
+                    ? client.logoDarkMode.node.childImageSharp.fluid
+                    : client.logoLightMode.node.childImageSharp.fluid
+                }
+              />
             </LogoWrapper>
           )
         })}
