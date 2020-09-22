@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
+import slugify from "slugify"
 
 import ProjectCard from "./projectCard"
 
@@ -35,7 +36,6 @@ const ProjectsGallery = () => {
       }
     }
   `)
-  var slugify = require("slugify")
 
   const {
     gcms: { films },
