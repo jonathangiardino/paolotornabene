@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const VideoContainer = styled.div`
-  width: 55%;
+  width: 37.5rem;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -12,10 +12,10 @@ const VideoContainer = styled.div`
   z-index: 1;
   opacity: 0.5;
   @media ${props => props.theme.breakpoints.large} {
-    width: 40%;
+    width: 50rem;
   }
   @media ${props => props.theme.breakpoints.tablet} {
-    width: 60%;
+    width: 25rem;
   }
   @media ${props => props.theme.breakpoints.mobile} {
     width: 100%;
