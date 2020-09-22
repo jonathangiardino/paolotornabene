@@ -5,7 +5,6 @@ import ThemeContext from "../store/ThemeContext"
 import Header from "./header"
 import FullPageMenu from "./fullPageMenu"
 import Footer from "./footer"
-import PageLoader from "./pageLoader"
 
 import "./layout.css"
 
@@ -31,7 +30,6 @@ const Layout = ({ children }) => {
     <ThemeContext.Consumer>
       {theme => (
         <>
-          <PageLoader />
           <Body
             style={{
               backgroundColor: theme.isDark ? "#0a0a0f" : "#fff",

@@ -9,6 +9,7 @@ module.exports = {
     author: `@jonathangiardino`,
   },
   plugins: [
+    `gatsby-plugin-preload-fonts`,
     `local-storage-fallback`,
     `dotenv`,
     `slugify`,

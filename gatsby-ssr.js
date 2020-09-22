@@ -1,7 +1,7 @@
 import React from "react"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import Theme from "./src/themes/theme"
-import GlobalStateProvider from "./src/store/GlobalStateProvider"
+import { DarkModeProvider } from "./src/store/ThemeContext"
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -24,10 +24,10 @@ h3 {
 `
 
 export const wrapRootElement = ({ element }) => (
-  <GlobalStateProvider>
+  <DarkModeProvider>
     <ThemeProvider theme={Theme}>
       <GlobalStyle />
       {element}
     </ThemeProvider>
-  </GlobalStateProvider>
+  </DarkModeProvider>
 )
