@@ -68,7 +68,6 @@ const MissionSection = () => {
       </ImageContainer>
 
       <MissionText>{mission.missionText}</MissionText>
-      {/* <AboutMeButton to="/">About me &#8594;</AboutMeButton> */}
     </Section>
   )
 }

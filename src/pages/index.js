@@ -7,6 +7,7 @@ import MissionSection from "../components/missionSection"
 import ProjectsGallery from "../components/projectsGallery"
 import AboutSection from "../components/aboutSection"
 import ClientsSection from "../components/clientsSection"
+import ContactSection from "../components/contactSection"
 
 const IndexPage = () => {
   return (
@@ -17,6 +18,7 @@ const IndexPage = () => {
       <ProjectsGallery />
       <AboutSection />
       <ClientsSection />
+      <ContactSection />
     </Layout>
   )
 }
