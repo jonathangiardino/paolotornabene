@@ -7,7 +7,7 @@ import { Icon } from "@chakra-ui/core"
 import Context from "../store/context"
 
 import MenuItem from "./menuItem"
-import SocialIcons from "./SocialIcons"
+import SocialIcons from "./socialIcons"
 
 const MenuWrapper = styled.div`
   display: flex;
