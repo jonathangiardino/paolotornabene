@@ -5,6 +5,7 @@ import ThemeContext from "../store/ThemeContext"
 import Header from "./header"
 import FullPageMenu from "./fullPageMenu"
 import Footer from "./footer"
+import PageLoader from "./pageLoader"
 
 import "./layout.css"
 
@@ -29,23 +30,26 @@ const Layout = ({ children }) => {
   return (
     <ThemeContext.Consumer>
       {theme => (
-        <Body
-          style={{
-            backgroundColor: theme.isDark ? "#0a0a0f" : "#fff",
-            color: theme.isDark ? "#fff" : "#0a0a0f",
-          }}
-        >
-          {menuOpen && (
-            <FullPageMenu
-              closeMenu={() => setMenuOpen(menuOpen => !menuOpen)}
-            />
-          )}
-          <Header openMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
+        <>
+          <PageLoader />
+          <Body
+            style={{
+              backgroundColor: theme.isDark ? "#0a0a0f" : "#fff",
+              color: theme.isDark ? "#fff" : "#0a0a0f",
+            }}
+          >
+            {menuOpen && (
+              <FullPageMenu
+                closeMenu={() => setMenuOpen(menuOpen => !menuOpen)}
+              />
+            )}
+            <Header openMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
 
-          <main>{children}</main>
+            <main>{children}</main>
 
-          <Footer linkColor={theme.isDark ? "#fff" : "#0a0a0f"} />
-        </Body>
+            <Footer linkColor={theme.isDark ? "#fff" : "#0a0a0f"} />
+          </Body>
+        </>
       )}
     </ThemeContext.Consumer>
   )

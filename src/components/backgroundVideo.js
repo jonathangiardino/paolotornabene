@@ -30,7 +30,7 @@ const VideoSource = styled.video`
 const BackgroundVideo = ({ source }) => {
   return (
     <VideoContainer>
-      <VideoSource autoPlay muted loop>
+      <VideoSource playsinline webkit-playsinline autoPlay muted loop>
         <source src={source} type="video/mp4" />
         Your browser does not support HTML5 video.
       </VideoSource>

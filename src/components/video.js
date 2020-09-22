@@ -8,7 +8,15 @@ const VideoContainer = styled.video`
 `
 
 const Video = ({ videoFile }) => (
-  <VideoContainer autoPlay muted loop controls controlsList="nodownload">
+  <VideoContainer
+    playsinline
+    webkit-playsinline
+    autoPlay
+    muted
+    loop
+    controls
+    controlsList="nodownload"
+  >
     <source src={videoFile} type="video/mp4" />
   </VideoContainer>
 )
