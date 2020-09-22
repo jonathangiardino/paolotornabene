@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const VideoContainer = styled.div`
+  width: 55%;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -10,12 +11,6 @@ const VideoContainer = styled.div`
   text-align: center;
   z-index: 1;
   opacity: 0.5;
-  @media ${props => props.theme.breakpoints.mobile} {
-    top: 0;
-  }
-`
-const VideoSource = styled.video`
-  width: 55%;
   @media ${props => props.theme.breakpoints.large} {
     width: 40%;
   }
@@ -24,7 +19,11 @@ const VideoSource = styled.video`
   }
   @media ${props => props.theme.breakpoints.mobile} {
     width: 100%;
+    top: 0;
   }
+`
+const VideoSource = styled.video`
+  width: 100%;
 `
 
 const BackgroundVideo = ({ source }) => {
