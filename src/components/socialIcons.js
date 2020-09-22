@@ -1,7 +1,7 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 
-import Context from "../store/context"
+import ThemeContext from "../store/ThemeContext"
 
 import { FaInstagram } from "react-icons/fa"
 import { FaVimeoV } from "react-icons/fa"
@@ -23,35 +23,38 @@ const IconLink = styled.a`
 `
 
 const SocialIcons = () => {
-  const { state } = useContext(Context)
   return (
-    <IconsWrapper>
-      <IconLink>
-        <FaInstagram
-          className="social-icon"
-          color={state.isDark ? "#fff" : "#0a0a0f"}
-        />
-      </IconLink>
-      <IconLink>
-        <FaVimeoV
-          className="social-icon"
-          color={state.isDark ? "#fff" : "#0a0a0f"}
-        />
-      </IconLink>
-      <IconLink>
-        <FaYoutube
-          className="social-icon"
-          color={state.isDark ? "#fff" : "#0a0a0f"}
-        />
-      </IconLink>
-      <IconLink>
-        {" "}
-        <FaLinkedinIn
-          className="social-icon"
-          color={state.isDark ? "#fff" : "#0a0a0f"}
-        />
-      </IconLink>
-    </IconsWrapper>
+    <ThemeContext.Consumer>
+      {theme => (
+        <IconsWrapper>
+          <IconLink>
+            <FaInstagram
+              className="social-icon"
+              color={theme.isDark ? "#fff" : "#0a0a0f"}
+            />
+          </IconLink>
+          <IconLink>
+            <FaVimeoV
+              className="social-icon"
+              color={theme.isDark ? "#fff" : "#0a0a0f"}
+            />
+          </IconLink>
+          <IconLink>
+            <FaYoutube
+              className="social-icon"
+              color={theme.isDark ? "#fff" : "#0a0a0f"}
+            />
+          </IconLink>
+          <IconLink>
+            {" "}
+            <FaLinkedinIn
+              className="social-icon"
+              color={theme.isDark ? "#fff" : "#0a0a0f"}
+            />
+          </IconLink>
+        </IconsWrapper>
+      )}
+    </ThemeContext.Consumer>
   )
 }
 

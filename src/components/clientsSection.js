@@ -1,9 +1,9 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
-import Context from "../store/context"
+import ThemeContext from "../store/ThemeContext"
 
 const Section = styled.section`
   display: flex;
@@ -61,26 +61,28 @@ const ClientsSection = () => {
     gcms: { clients },
   } = data
 
-  const { state } = useContext(Context)
-
   return (
-    <Section>
-      <ClientsContainer>
-        {clients.map(client => {
-          return (
-            <LogoWrapper key={client.id}>
-              <Img
-                fluid={
-                  state.isDark
-                    ? client.logoDarkMode.node.childImageSharp.fluid
-                    : client.logoLightMode.node.childImageSharp.fluid
-                }
-              />
-            </LogoWrapper>
-          )
-        })}
-      </ClientsContainer>
-    </Section>
+    <ThemeContext.Consumer>
+      {theme => (
+        <Section>
+          <ClientsContainer>
+            {clients.map(client => {
+              return (
+                <LogoWrapper key={client.id}>
+                  <Img
+                    fluid={
+                      theme.isDark
+                        ? client.logoDarkMode.node.childImageSharp.fluid
+                        : client.logoLightMode.node.childImageSharp.fluid
+                    }
+                  />
+                </LogoWrapper>
+              )
+            })}
+          </ClientsContainer>
+        </Section>
+      )}
+    </ThemeContext.Consumer>
   )
 }
 

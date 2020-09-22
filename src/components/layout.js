@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import Context from "../store/context"
+import ThemeContext from "../store/ThemeContext"
 
 import Header from "./header"
 import FullPageMenu from "./fullPageMenu"
@@ -24,27 +24,30 @@ const Body = styled.div`
 `
 
 const Layout = ({ children }) => {
-  const { state } = useContext(Context)
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <>
-      <Body
-        style={{
-          backgroundColor: state.isDark ? "#0a0a0f" : "#fff",
-          color: state.isDark ? "#fff" : "#0a0a0f",
-        }}
-      >
-        {menuOpen && (
-          <FullPageMenu closeMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
-        )}
-        <Header openMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
+    <ThemeContext.Consumer>
+      {theme => (
+        <Body
+          style={{
+            backgroundColor: theme.isDark ? "#0a0a0f" : "#fff",
+            color: theme.isDark ? "#fff" : "#0a0a0f",
+          }}
+        >
+          {menuOpen && (
+            <FullPageMenu
+              closeMenu={() => setMenuOpen(menuOpen => !menuOpen)}
+            />
+          )}
+          <Header openMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
 
-        <main>{children}</main>
+          <main>{children}</main>
 
-        <Footer linkColor={state.isDark ? "#fff" : "#0a0a0f"} />
-      </Body>
-    </>
+          <Footer linkColor={theme.isDark ? "#fff" : "#0a0a0f"} />
+        </Body>
+      )}
+    </ThemeContext.Consumer>
   )
 }
 

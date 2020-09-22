@@ -1,10 +1,10 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { BsChatSquareQuote } from "react-icons/bs"
 
-import Context from "../store/context"
+import ThemeContext from "../store/ThemeContext"
 
 const Section = styled.section`
   display: flex;
@@ -77,53 +77,58 @@ const ContactSection = () => {
     },
   } = data
 
-  const { state } = useContext(Context)
-
   return (
-    <Section id="contact">
-      <ContactWrapper>
-        <BsChatSquareQuote
-          size="7rem"
-          style={{ color: state.isDark ? "#fff" : "#0a0a0f", margin: "3.5rem" }}
-        />
-        <ContactText>
-          <Label>EMAIL </Label>
-          <a
-            href={`mailto:${email}?subject=Hey%20Paolo%2C%20Let's%20have%20a%20chat!&body=Hi%20Paolo%2C%0D%0A%0D%0AMy%20name%20is%20%5BYour%20name%20here%5D%2C%0D%0A%0D%0AI%20am%20reaching%20out%20because%20%5BBody%20of%20your%20message%5D...`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {email}
-          </a>
-        </ContactText>
-        <ContactText>
-          <Label> INSTAGRAM </Label>
-          <a
-            href={`https://www.instagram.com/${instagramHandle}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            @{instagramHandle}
-          </a>
-        </ContactText>
-        <ContactText>
-          <Label>MESSENGER </Label>
-          <a
-            href={`https://www.${facebookMessenger}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {facebookMessenger}
-          </a>
-        </ContactText>
-        <ContactText>
-          <Label> PHONE </Label>
-          <a href={`tel:${phoneNumber}`} rel="noreferrer">
-            {phoneNumber}{" "}
-          </a>
-        </ContactText>
-      </ContactWrapper>
-    </Section>
+    <ThemeContext.Consumer>
+      {theme => (
+        <Section id="contact">
+          <ContactWrapper>
+            <BsChatSquareQuote
+              size="7rem"
+              style={{
+                color: theme.isDark ? "#fff" : "#0a0a0f",
+                margin: "3.5rem",
+              }}
+            />
+            <ContactText>
+              <Label>EMAIL </Label>
+              <a
+                href={`mailto:${email}?subject=Hey%20Paolo%2C%20Let's%20have%20a%20chat!&body=Hi%20Paolo%2C%0D%0A%0D%0AMy%20name%20is%20%5BYour%20name%20here%5D%2C%0D%0A%0D%0AI%20am%20reaching%20out%20because%20%5BBody%20of%20your%20message%5D...`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {email}
+              </a>
+            </ContactText>
+            <ContactText>
+              <Label> INSTAGRAM </Label>
+              <a
+                href={`https://www.instagram.com/${instagramHandle}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                @{instagramHandle}
+              </a>
+            </ContactText>
+            <ContactText>
+              <Label>MESSENGER </Label>
+              <a
+                href={`https://www.${facebookMessenger}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {facebookMessenger}
+              </a>
+            </ContactText>
+            <ContactText>
+              <Label> PHONE </Label>
+              <a href={`tel:${phoneNumber}`} rel="noreferrer">
+                {phoneNumber}{" "}
+              </a>
+            </ContactText>
+          </ContactWrapper>
+        </Section>
+      )}
+    </ThemeContext.Consumer>
   )
 }
 

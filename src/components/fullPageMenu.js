@@ -1,10 +1,10 @@
-import React, { useContext } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { Icon } from "@chakra-ui/core"
 
-import Context from "../store/context"
+import ThemeContext from "../store/ThemeContext"
 
 import MenuItem from "./menuItem"
 import SocialIcons from "./socialIcons"
@@ -48,8 +48,6 @@ const ItemsContainer = styled.div`
 `
 
 const FullPageMenu = ({ closeMenu }) => {
-  const { state } = useContext(Context)
-
   const logo = useStaticQuery(graphql`
     query {
       logoDark: file(relativePath: { eq: "paolotornabenelogo-dark.png" }) {
@@ -93,42 +91,46 @@ const FullPageMenu = ({ closeMenu }) => {
   ]
 
   return (
-    <MenuWrapper
-      style={{
-        backgroundColor: state.isDark ? "#0a0a0f" : "#fff",
-        color: state.isDark ? "#fff" : "#0a0a0f",
-      }}
-    >
-      <Logo>
-        <Img
-          fixed={
-            state.isDark
-              ? logo.logoLight.childImageSharp.fixed
-              : logo.logoDark.childImageSharp.fixed
-          }
-        />
-      </Logo>
-      <Close onClick={closeMenu}>
-        <Icon
-          name="close"
-          size="20px"
-          color={state.isDark ? "#fff" : "#0a0a0f"}
-        />
-      </Close>
-      <ItemsContainer>
-        {items.map(({ itemName, route }) => {
-          return (
-            <MenuItem
-              textColor={state.isDark ? "#fff" : "#0a0a0f"}
-              itemName={itemName}
-              route={route}
+    <ThemeContext.Consumer>
+      {theme => (
+        <MenuWrapper
+          style={{
+            backgroundColor: theme.isDark ? "#0a0a0f" : "#fff",
+            color: theme.isDark ? "#fff" : "#0a0a0f",
+          }}
+        >
+          <Logo>
+            <Img
+              fixed={
+                theme.isDark
+                  ? logo.logoLight.childImageSharp.fixed
+                  : logo.logoDark.childImageSharp.fixed
+              }
             />
-          )
-        })}
-      </ItemsContainer>
+          </Logo>
+          <Close onClick={closeMenu}>
+            <Icon
+              name="close"
+              size="20px"
+              color={theme.isDark ? "#fff" : "#0a0a0f"}
+            />
+          </Close>
+          <ItemsContainer>
+            {items.map(({ itemName, route }) => {
+              return (
+                <MenuItem
+                  textColor={theme.isDark ? "#fff" : "#0a0a0f"}
+                  itemName={itemName}
+                  route={route}
+                />
+              )
+            })}
+          </ItemsContainer>
 
-      <SocialIcons />
-    </MenuWrapper>
+          <SocialIcons />
+        </MenuWrapper>
+      )}
+    </ThemeContext.Consumer>
   )
 }
 

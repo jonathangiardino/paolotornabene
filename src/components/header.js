@@ -1,9 +1,11 @@
-import React, { useContext } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import Context from "../store/context"
+
 import { Icon } from "@chakra-ui/core"
+
+import ThemeContext from "../store/ThemeContext"
 
 // Style
 const Nav = styled.div`
@@ -53,8 +55,6 @@ const MenuLine = styled.div`
 `
 
 const Header = ({ openMenu }) => {
-  const { state, dispatch } = useContext(Context)
-
   const logo = useStaticQuery(graphql`
     query {
       logoDark: file(relativePath: { eq: "paolotornabenelogo-dark.png" }) {
@@ -75,35 +75,39 @@ const Header = ({ openMenu }) => {
   `)
 
   return (
-    <Nav>
-      <Logo>
-        <Img
-          fixed={
-            state.isDark
-              ? logo.logoLight.childImageSharp.fixed
-              : logo.logoDark.childImageSharp.fixed
-          }
-        />
-      </Logo>
+    <ThemeContext.Consumer>
+      {theme => (
+        <Nav>
+          <Logo>
+            <Img
+              fixed={
+                theme.isDark
+                  ? logo.logoLight.childImageSharp.fixed
+                  : logo.logoDark.childImageSharp.fixed
+              }
+            />
+          </Logo>
 
-      <Menu>
-        <Icon
-          onClick={() => dispatch({ type: "TOGGLE_DARK_MODE" })}
-          name={state.isDark ? "sun" : "moon"}
-          color={state.isDark ? "#fff" : "#0a0a0f"}
-          size="28px"
-        ></Icon>
-        <MenuButton onClick={openMenu}>
-          <MenuLine
-            style={{ backgroundColor: state.isDark ? "#fff" : "#0a0a0f" }}
-          />
-          <MenuLine
-            className="longer"
-            style={{ backgroundColor: state.isDark ? "#fff" : "#0a0a0f" }}
-          />
-        </MenuButton>
-      </Menu>
-    </Nav>
+          <Menu>
+            <Icon
+              onClick={theme.toggleDark}
+              name={theme.isDark ? "sun" : "moon"}
+              color={theme.isDark ? "#fff" : "#0a0a0f"}
+              size="28px"
+            ></Icon>
+            <MenuButton onClick={openMenu}>
+              <MenuLine
+                style={{ backgroundColor: theme.isDark ? "#fff" : "#0a0a0f" }}
+              />
+              <MenuLine
+                className="longer"
+                style={{ backgroundColor: theme.isDark ? "#fff" : "#0a0a0f" }}
+              />
+            </MenuButton>
+          </Menu>
+        </Nav>
+      )}
+    </ThemeContext.Consumer>
   )
 }
 
