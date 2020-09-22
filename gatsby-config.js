@@ -9,7 +9,6 @@ module.exports = {
     author: `@jonathangiardino`,
   },
   plugins: [
-    `local-storage-fallback`,
     `dotenv`,
     `slugify`,
     `smooth-scroll`,

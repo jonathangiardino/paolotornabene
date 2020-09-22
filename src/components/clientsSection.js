@@ -68,7 +68,7 @@ const ClientsSection = () => {
       <ClientsContainer>
         {clients.map(client => {
           return (
-            <LogoWrapper>
+            <LogoWrapper key={client.id}>
               <Img
                 fluid={
                   state.isDark

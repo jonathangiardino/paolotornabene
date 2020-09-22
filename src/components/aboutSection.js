@@ -88,7 +88,7 @@ const AboutSection = () => {
     <Section id="about">
       <AboutWrapper>
         {about.aboutSectionSummary.map(item => (
-          <AboutText>
+          <AboutText key={item}>
             {item} <Divider> | </Divider>
           </AboutText>
         ))}

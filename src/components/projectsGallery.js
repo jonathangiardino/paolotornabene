@@ -46,6 +46,7 @@ const ProjectsGallery = () => {
       {films.map(film => {
         return (
           <ProjectCard
+            key={film.id}
             title={film.title}
             imageSrc={film.imageCover.node.childImageSharp.fluid}
             path={slugify(film.title, { lower: true })}

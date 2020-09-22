@@ -83,9 +83,8 @@ const ContactSection = () => {
     <Section id="contact">
       <ContactWrapper>
         <BsChatSquareQuote
-          color={state.isDark ? "#fffff" : "#0a0a0f"}
           size="7rem"
-          style={{ margin: "3.5rem" }}
+          style={{ color: state.isDark ? "#fff" : "#0a0a0f", margin: "3.5rem" }}
         />
         <ContactText>
           <Label>EMAIL </Label>

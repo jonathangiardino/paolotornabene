@@ -109,7 +109,11 @@ const Footer = ({ linkColor }) => {
           <FlexiDiv>
             <FooterMenu>
               {links.map(link => (
-                <FooterLink style={{ color: `${linkColor}` }} to={link.path}>
+                <FooterLink
+                  key={link.linkText}
+                  style={{ color: `${linkColor}` }}
+                  to={link.path}
+                >
                   {link.linkText}
                 </FooterLink>
               ))}
