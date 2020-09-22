@@ -2,12 +2,12 @@ import React from "react"
 import styled from "styled-components"
 
 const VideoContainer = styled.div`
-  position: absolute;
+  /* position: absolute;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  text-align: center;
+  text-align: center; */
   z-index: 1;
   opacity: 0.5;
   @media ${props => props.theme.breakpoints.mobile} {
