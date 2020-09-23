@@ -8,7 +8,7 @@ const TextContainer = styled.div`
 `
 
 const ItemName = styled.h2`
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   font-weight: black;
   font-size: 4rem;
   line-height: 120%;

@@ -21,6 +21,7 @@ const Body = styled.div`
   text-decoration: "none";
   margin: "0 auto";
   font-family: "Reem Kufi";
+  font-display: optional;
 `
 
 const Layout = ({ children }) => {
@@ -41,6 +42,7 @@ const Layout = ({ children }) => {
                 closeMenu={() => setMenuOpen(menuOpen => !menuOpen)}
               />
             )}
+
             <Header openMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
 
             <main>{children}</main>

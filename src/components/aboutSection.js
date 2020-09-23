@@ -22,7 +22,7 @@ const AboutWrapper = styled.div`
 `
 
 const AboutText = styled.h1`
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   font-size: 3rem;
   line-height: 120%;
   font-weight: normal;

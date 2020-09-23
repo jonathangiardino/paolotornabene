@@ -9,7 +9,7 @@ const TextContainer = styled.div`
   }
 `
 const HeroMessage = styled.h1`
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   font-size: 4.5rem;
   line-height: 120%;
   font-weight: normal;
@@ -35,7 +35,7 @@ const NameContainer = styled.div`
 `
 
 const Name = styled.h2`
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   font-weight: black;
   font-size: 4.5rem;
   line-height: 120%;

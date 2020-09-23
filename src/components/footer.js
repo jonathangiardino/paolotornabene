@@ -21,7 +21,7 @@ const FooterMenu = styled.div`
 const FooterLink = styled(Link)`
   width: auto;
   padding: 0 ${props => props.theme.spacing.xsmall} 0 0;
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   font-size: 1.5rem;
   line-height: 120%;
   font-weight: normal;
@@ -67,7 +67,7 @@ const Divider = styled.div`
 `
 const Small = styled.small`
   text-align: center;
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   text-transform: uppercase;
 `
 

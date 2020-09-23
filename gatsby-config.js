@@ -9,7 +9,7 @@ module.exports = {
     author: `@jonathangiardino`,
   },
   plugins: [
-    `gatsby-plugin-preload-fonts`,
+    `gatsby-plugin-styled-components`,
     `local-storage-fallback`,
     `dotenv`,
     `slugify`,
@@ -40,14 +40,6 @@ module.exports = {
         typeName: `GraphCMS`,
         fieldName: `gcms`,
         url: process.env.GATSBY_GRAPHCMS_API_ENDPOINT,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Oswald", "Reem Kufi"],
-        },
       },
     },
     {

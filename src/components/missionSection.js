@@ -12,7 +12,7 @@ const Section = styled.section`
 `
 
 const MissionText = styled.h1`
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   text-transform: uppercase;
   padding: 2rem 0 0;
   font-size: 3rem;

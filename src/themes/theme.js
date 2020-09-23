@@ -8,7 +8,7 @@ export default {
     dark: "#0a0a0f",
   },
   fonts: {
-    oswald: "Oswald",
+    Oswald: "Oswald",
     reemKufi: "Reem Kufi",
   },
   fontSize: {

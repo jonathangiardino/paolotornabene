@@ -22,8 +22,6 @@ const HeroContainer = styled.div`
 
 const ProjectsButton = styled(Link)`
   font-weight: black;
-  position: absolute;
-  right: 3%;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
   writing-mode: vertical-rl;
@@ -49,7 +47,7 @@ const AbsoluteContainer = styled.div`
   transform: translateX(50%);
 `
 
-const Hero = ({ projectSection }) => {
+const Hero = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
       gcms {
@@ -70,8 +68,10 @@ const Hero = ({ projectSection }) => {
   return (
     <HeroContainer>
       <BackgroundVideo source={hero.heroVideo.url} />
+
       <HeroTitle name="Paolo Tornabene" title={hero.header} />
-      <ProjectsButton to="/#projects">Films &#8594;</ProjectsButton>
+      <ProjectsButton to="/#projects">work &#8594;</ProjectsButton>
+
       <AbsoluteContainer>
         <SocialIcons />
       </AbsoluteContainer>

@@ -7,6 +7,16 @@
   outline-color: #f3c623;
 }
 
+@font-face {
+  font-family: "Oswald";
+  src: url("../../static/fonts/Oswald/Oswald-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Reem Kufi";
+  src: url("../../static/fonts/reem_kufi/ReemKufi-Regular.ttf");
+}
+
 .social-icon {
   transition: all 0.2s ease-in-out;
 }

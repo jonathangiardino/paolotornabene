@@ -27,7 +27,7 @@ const ProjectWrapper = styled.div`
 `
 
 const Title = styled.h1`
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   font-size: 4.5rem;
   line-height: 120%;
   font-weight: normal;
@@ -42,7 +42,7 @@ const Title = styled.h1`
 `
 
 const BackLink = styled.a`
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   text-transform: uppercase;
   font-size: 1.5rem;
   display: block;
@@ -54,7 +54,7 @@ const TagWrapper = styled.div`
   width: 100%;
 `
 const Tag = styled.h3`
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   color: ${props => props.theme.colors.yellow};
   text-transform: uppercase;
   display: inline;

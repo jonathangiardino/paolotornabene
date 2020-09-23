@@ -34,7 +34,7 @@ const ProjectTitle = styled.h1`
   opacity: 0;
   line-height: 1.2;
   font-size: 2rem;
-  font-family: ${props => props.theme.fonts.oswald};
+  font-family: "Oswald";
   text-align: center;
   text-transform: uppercase;
   position: absolute;
