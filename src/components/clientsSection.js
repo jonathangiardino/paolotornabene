@@ -32,6 +32,7 @@ const ClientsSection = () => {
         clients {
           id
           clientName
+          clientWebsiteLink
           logoDarkMode {
             url
             node {
@@ -68,15 +69,22 @@ const ClientsSection = () => {
           <ClientsContainer>
             {clients.map(client => {
               return (
-                <LogoWrapper key={client.id}>
-                  <Img
-                    fluid={
-                      theme.isDark
-                        ? client.logoDarkMode.node.childImageSharp.fluid
-                        : client.logoLightMode.node.childImageSharp.fluid
-                    }
-                  />
-                </LogoWrapper>
+                <a
+                  href={client.clientWebsiteLink}
+                  key={client.id}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <LogoWrapper>
+                    <Img
+                      fluid={
+                        theme.isDark
+                          ? client.logoDarkMode.node.childImageSharp.fluid
+                          : client.logoLightMode.node.childImageSharp.fluid
+                      }
+                    />
+                  </LogoWrapper>
+                </a>
               )
             })}
           </ClientsContainer>

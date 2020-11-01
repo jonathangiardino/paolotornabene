@@ -80,11 +80,10 @@ const Span = styled.span`
 
 const Footer = ({ linkColor }) => {
   const links = [
-    { linkText: "About", path: "/" },
-    { linkText: "Films", path: "/" },
-    { linkText: "Clients", path: "/" },
-    { linkText: "Contact", path: "/" },
-    { linkText: "Hire me", path: "/" },
+    { linkText: "About", path: "/about" },
+    { linkText: "Films", path: "/films" },
+    { linkText: "Contact", path: "/#contact" },
+    { linkText: "Hire me", path: "/#contact" },
   ]
 
   const data = useStaticQuery(graphql`

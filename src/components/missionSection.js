@@ -4,11 +4,12 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 const Section = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 4rem;
 `
 
 const MissionText = styled.h1`
@@ -22,7 +23,6 @@ const MissionText = styled.h1`
 
 const ImageContainer = styled.div`
   width: 30%;
-  padding: 1rem;
   @media ${props => props.theme.breakpoints.large} {
     width: 25%;
   }
@@ -61,10 +61,7 @@ const MissionSection = () => {
   return (
     <Section>
       <ImageContainer>
-        <Img
-          style={{ padding: "1rem" }}
-          fluid={mission.missionImage.node.childImageSharp.fluid}
-        />
+        <Img fluid={mission.missionImage.node.childImageSharp.fluid} />
       </ImageContainer>
 
       <MissionText>{mission.missionText}</MissionText>

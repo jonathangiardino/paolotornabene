@@ -77,16 +77,12 @@ const FullPageMenu = ({ closeMenu }) => {
       route: "/films",
     },
     {
-      itemName: "Clients",
-      route: "/clients",
-    },
-    {
       itemName: "Contact",
-      route: "/contact",
+      route: "/#contact",
     },
     {
       itemName: "Hire Me",
-      route: "/contact",
+      route: "/#contact",
     },
   ]
 

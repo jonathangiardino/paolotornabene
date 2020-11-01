@@ -64,7 +64,6 @@ const ContactSection = () => {
         contacts {
           email
           instagramHandle
-          facebookMessenger
           phoneNumber
         }
       }
@@ -73,7 +72,7 @@ const ContactSection = () => {
 
   const {
     gcms: {
-      contacts: [{ email, instagramHandle, facebookMessenger, phoneNumber }],
+      contacts: [{ email, instagramHandle, phoneNumber }],
     },
   } = data
 
@@ -107,16 +106,6 @@ const ContactSection = () => {
                 rel="noreferrer"
               >
                 @{instagramHandle}
-              </a>
-            </ContactText>
-            <ContactText>
-              <Label>MESSENGER </Label>
-              <a
-                href={`https://www.${facebookMessenger}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {facebookMessenger}
               </a>
             </ContactText>
             <ContactText>

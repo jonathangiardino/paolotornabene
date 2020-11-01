@@ -4,14 +4,15 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
-  width: 60%;
-  margin: 1rem;
+  width: 100%;
+  margin: 2rem 0;
   position: relative;
   @media ${props => props.theme.breakpoints.tablet} {
-    width: 90%;
+    width: 100%;
   }
   @media ${props => props.theme.breakpoints.mobile} {
-    width: 90%;
+    width: 100%;
+    margin: 1rem 0;
   }
 `
 

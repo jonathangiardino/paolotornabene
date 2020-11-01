@@ -92,7 +92,7 @@ const AboutSection = () => {
             {item} <Divider> | </Divider>
           </AboutText>
         ))}
-        <AboutPageLink to="/">
+        <AboutPageLink to="/about">
           <LinkText>More about me</LinkText>
         </AboutPageLink>
         <ImageContainer>

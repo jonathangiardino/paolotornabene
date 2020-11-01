@@ -10,18 +10,31 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 6rem 0;
+`
+const FilmsContainer = styled.div`
+  margin: 10rem 0 0 0;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @media ${props => props.theme.breakpoints.tablet} {
+    width: 80%;
+  }
+  @media ${props => props.theme.breakpoints.mobile} {
+    width: 90%;
+  }
 `
 
 const ProjectsGallery = () => {
   const data = useStaticQuery(graphql`
     query Films {
       gcms {
-        films(orderBy: createdAt_DESC, last: 5) {
+        films {
           id
           title
           tags
           date
+          featured
           imageCover {
             url
             node {
@@ -43,17 +56,20 @@ const ProjectsGallery = () => {
 
   return (
     <Section id="projects">
-      {films.map(film => {
-        return (
-          <ProjectCard
-            key={film.id}
-            title={film.title}
-            imageSrc={film.imageCover.node.childImageSharp.fluid}
-            path={slugify(film.title, { lower: true })}
-            date={film.date}
-          />
-        )
-      })}
+      <FilmsContainer>
+        {films.map(
+          film =>
+            film.featured && (
+              <ProjectCard
+                key={film.id}
+                title={film.title}
+                imageSrc={film.imageCover.node.childImageSharp.fluid}
+                path={slugify(film.title, { lower: true })}
+                date={film.date}
+              />
+            )
+        )}
+      </FilmsContainer>
     </Section>
   )
 }

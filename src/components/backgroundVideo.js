@@ -18,8 +18,7 @@ const VideoContainer = styled.div`
     width: 25rem;
   }
   @media ${props => props.theme.breakpoints.mobile} {
-    width: 100%;
-    top: 0;
+    display: none;
   }
 `
 const VideoSource = styled.video`
