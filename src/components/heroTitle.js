@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
+import { motion } from "framer-motion"
+
 const TextContainer = styled.div`
   z-index: 2;
   padding: ${props => props.theme.spacing.medium};
@@ -8,7 +10,7 @@ const TextContainer = styled.div`
     margin-top: 2rem;
   }
 `
-const HeroMessage = styled.h1`
+const HeroMessage = styled(motion.h1)`
   font-family: "Oswald";
   font-size: 4.5rem;
   line-height: 120%;
@@ -34,7 +36,7 @@ const NameContainer = styled.div`
   }
 `
 
-const Name = styled.h2`
+const Name = styled(motion.h2)`
   font-family: "Oswald";
   font-weight: black;
   font-size: 4.5rem;
@@ -54,9 +56,21 @@ const HeroTitle = ({ name, title }) => {
   return (
     <TextContainer>
       <NameContainer>
-        <Name>{name}</Name>
+        <Name
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "linear" }}
+        >
+          {name}
+        </Name>
       </NameContainer>
-      <HeroMessage>{title}</HeroMessage>
+      <HeroMessage
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 0.5, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.3, ease: "linear" }}
+      >
+        {title}
+      </HeroMessage>
     </TextContainer>
   )
 }

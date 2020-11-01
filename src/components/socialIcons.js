@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
 
 import ThemeContext from "../store/ThemeContext"
 
@@ -9,9 +10,10 @@ import { FaYoutube } from "react-icons/fa"
 import theDotsBlack from "../images/theDotsBlack.svg"
 import theDotsWhite from "../images/theDotsWhite.svg"
 import theDotsHover from "../images/theDotsHover.svg"
-import { graphql, useStaticQuery } from "gatsby"
 
-const IconsWrapper = styled.div`
+import { motion } from "framer-motion"
+
+const IconsWrapper = styled(motion.div)`
   padding: ${props => props.theme.spacing.medium} 0;
   width: 260px;
   display: flex;
@@ -58,7 +60,11 @@ const SocialIcons = () => {
   return (
     <ThemeContext.Consumer>
       {theme => (
-        <IconsWrapper>
+        <IconsWrapper
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.4, ease: "linear" }}
+        >
           <IconLink href={socialLinks[0].link} target="_blank">
             <FaInstagram
               className="social-icon"

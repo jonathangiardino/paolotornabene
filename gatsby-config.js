@@ -15,6 +15,7 @@ module.exports = {
     `slugify`,
     `smooth-scroll`,
     `gatsby-plugin-react-helmet`,
+    `framer-motion`,
     {
       resolve: "gatsby-plugin-chakra-ui",
       options: {

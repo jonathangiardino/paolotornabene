@@ -1,7 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-const VideoContainer = styled.div`
+import { motion } from "framer-motion"
+
+const VideoContainer = styled(motion.div)`
   width: 37.5rem;
   position: absolute;
   margin-left: auto;
@@ -27,7 +29,11 @@ const VideoSource = styled.video`
 
 const BackgroundVideo = ({ source }) => {
   return (
-    <VideoContainer>
+    <VideoContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.5 }}
+      transition={{ duration: 0.3, delay: 0.6, ease: "linear" }}
+    >
       <VideoSource playsinline webkit-playsinline autoPlay muted loop>
         <source src={source} type="video/mp4" />
         Your browser does not support HTML5 video.

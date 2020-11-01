@@ -6,6 +6,8 @@ import Header from "./header"
 import FullPageMenu from "./fullPageMenu"
 import Footer from "./footer"
 
+import { AnimatePresence } from "framer-motion"
+
 import "./layout.css"
 
 if (typeof window !== "undefined") {
@@ -37,11 +39,14 @@ const Layout = ({ children }) => {
               color: theme.isDark ? "#fff" : "#0a0a0f",
             }}
           >
-            {menuOpen && (
-              <FullPageMenu
-                closeMenu={() => setMenuOpen(menuOpen => !menuOpen)}
-              />
-            )}
+            <AnimatePresence>
+              {menuOpen && (
+                <FullPageMenu
+                  closeMenu={() => setMenuOpen(menuOpen => !menuOpen)}
+                  menuState={menuOpen}
+                />
+              )}
+            </AnimatePresence>
 
             <Header openMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
 

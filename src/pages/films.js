@@ -4,6 +4,8 @@ import { graphql } from "gatsby"
 
 import { navigate } from "@reach/router"
 
+import { motion } from "framer-motion"
+
 import Layout from "../components/layout"
 import ProjectCard from "../components/projectCard"
 import slugify from "slugify"
@@ -28,7 +30,7 @@ const FilmsContainer = styled.div`
   }
 `
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   font-family: "Oswald";
   font-size: 4.5rem;
   line-height: 120%;
@@ -43,7 +45,7 @@ const Title = styled.h1`
   }
 `
 
-const BackLink = styled.a`
+const BackLink = styled(motion.a)`
   font-family: "Oswald";
   text-transform: uppercase;
   font-size: 1.5rem;
@@ -63,8 +65,21 @@ const Films = ({ data }) => {
     <Layout>
       <FilmsPageWrapper>
         <FilmsContainer>
-          <BackLink onClick={goBack}>&#8592; Back</BackLink>
-          <Title>Films</Title>
+          <BackLink
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear" }}
+            onClick={goBack}
+          >
+            &#8592; Back
+          </BackLink>
+          <Title
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear", delay: 0.3 }}
+          >
+            Films
+          </Title>
           {films.map(
             film =>
               film.featured && (

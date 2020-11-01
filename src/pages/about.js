@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 import { navigate } from "@reach/router"
+import { motion } from "framer-motion"
 
 import Layout from "../components/layout"
 
@@ -26,7 +27,7 @@ const AboutContainer = styled.div`
   }
 `
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   font-family: "Oswald";
   font-size: 4.5rem;
   line-height: 120%;
@@ -41,7 +42,7 @@ const Title = styled.h1`
   }
 `
 
-const BackLink = styled.a`
+const BackLink = styled(motion.a)`
   font-family: "Oswald";
   text-transform: uppercase;
   font-size: 1.5rem;
@@ -99,8 +100,22 @@ const About = () => {
     <Layout>
       <AboutPageWrapper>
         <AboutContainer>
-          <BackLink onClick={goBack}>&#8592; Back</BackLink>
-          <Title>About me</Title>
+          <BackLink
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear" }}
+            onClick={goBack}
+          >
+            &#8592; Back
+          </BackLink>
+          <Title
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear", delay: 0.3 }}
+            onClick={goBack}
+          >
+            About me
+          </Title>
           <ImageContainer>
             <Img fluid={about.aboutImage.node.childImageSharp.fluid} />
           </ImageContainer>

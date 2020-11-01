@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
 import { Icon } from "@chakra-ui/core"
 
@@ -9,7 +10,7 @@ import ThemeContext from "../store/ThemeContext"
 
 // Style
 const Nav = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -33,11 +34,11 @@ const Menu = styled.div`
 const Logo = styled.div`
   width: 3rem;
   @media ${props => props.theme.breakpoints.mobile} {
-    width: 2rem;
+    left: 1rem;
   }
 `
 
-const MenuButton = styled.div`
+const MenuButton = styled(motion.div)`
   font-size: ${props => props.theme.fontSize.small};
   padding: ${props => props.theme.spacing.small};
   cursor: pointer;
@@ -95,7 +96,13 @@ const Header = ({ openMenu }) => {
               color={theme.isDark ? "#fff" : "#0a0a0f"}
               size="28px"
             ></Icon>
-            <MenuButton onClick={openMenu}>
+            <MenuButton
+              onClick={openMenu}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, type: "Inertia" }}
+              exit={{ opacity: 0 }}
+            >
               <MenuLine
                 style={{ backgroundColor: theme.isDark ? "#fff" : "#0a0a0f" }}
               />

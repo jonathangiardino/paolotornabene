@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-display: optional;
+    max-width: 100%;
 }
 a {
   text-decoration: none;

@@ -4,23 +4,26 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { Icon } from "@chakra-ui/core"
 
+import { motion } from "framer-motion"
+
 import ThemeContext from "../store/ThemeContext"
 
 import MenuItem from "./menuItem"
 import SocialIcons from "./socialIcons"
 
-const MenuWrapper = styled.div`
+const MenuWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
+  max-width: 100%;
   height: 100vh;
   position: fixed;
   z-index: 10;
 `
 
-const Close = styled.div`
+const Close = styled(motion.div)`
   position: absolute;
   top: 3.3rem;
   right: 3.5rem;
@@ -37,17 +40,31 @@ const Logo = styled.div`
   left: 2rem;
   width: 3rem;
   @media ${props => props.theme.breakpoints.mobile} {
-    width: 2rem;
     top: 1rem;
-    left: 2rem;
+    left: 1rem;
   }
 `
 
-const ItemsContainer = styled.div`
+const ItemsContainer = styled(motion.div)`
   margin-top: 3rem;
 `
 
-const FullPageMenu = ({ closeMenu }) => {
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+const listItem = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+}
+
+const FullPageMenu = ({ closeMenu, menuState }) => {
   const logo = useStaticQuery(graphql`
     query {
       logoDark: file(relativePath: { eq: "paolotornabenelogo-dark.png" }) {
@@ -90,6 +107,10 @@ const FullPageMenu = ({ closeMenu }) => {
     <ThemeContext.Consumer>
       {theme => (
         <MenuWrapper
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "linear" }}
           style={{
             backgroundColor: theme.isDark ? "#0a0a0f" : "#fff",
             color: theme.isDark ? "#fff" : "#0a0a0f",
@@ -104,21 +125,28 @@ const FullPageMenu = ({ closeMenu }) => {
               }
             />
           </Logo>
-          <Close onClick={closeMenu}>
+          <Close
+            onClick={closeMenu}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "linear" }}
+          >
             <Icon
               name="close"
               size="20px"
               color={theme.isDark ? "#fff" : "#0a0a0f"}
             />
           </Close>
-          <ItemsContainer>
-            {items.map(({ itemName, route }) => {
+          <ItemsContainer variants={container} initial="hidden" animate="show">
+            {items.map(({ itemName, route, i }) => {
               return (
-                <MenuItem
-                  textColor={theme.isDark ? "#fff" : "#0a0a0f"}
-                  itemName={itemName}
-                  route={route}
-                />
+                <motion.div key={i} variants={listItem} onClick={closeMenu}>
+                  <MenuItem
+                    textColor={theme.isDark ? "#fff" : "#0a0a0f"}
+                    itemName={itemName}
+                    route={route}
+                  />
+                </motion.div>
               )
             })}
           </ItemsContainer>

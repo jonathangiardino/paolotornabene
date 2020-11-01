@@ -4,6 +4,8 @@ import { graphql } from "gatsby"
 
 import { navigate } from "@reach/router"
 
+import { motion } from "framer-motion"
+
 import Layout from "../components/layout"
 import Video from "../components/video"
 
@@ -26,7 +28,7 @@ const ProjectWrapper = styled.div`
   }
 `
 
-const Title = styled.h1`
+const Title = styled(motion.h1)`
   font-family: "Oswald";
   font-size: 4.5rem;
   line-height: 120%;
@@ -41,7 +43,7 @@ const Title = styled.h1`
   }
 `
 
-const BackLink = styled.a`
+const BackLink = styled(motion.a)`
   font-family: "Oswald";
   text-transform: uppercase;
   font-size: 1.5rem;
@@ -75,25 +77,52 @@ const Film = ({ data }) => {
     <Layout>
       <FilmPageWrapper>
         <ProjectWrapper>
-          <BackLink onClick={goBack}>&#8592; Back</BackLink>
+          <BackLink
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear" }}
+            onClick={goBack}
+          >
+            &#8592; Back
+          </BackLink>
 
-          <Title>
+          <Title
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear", delay: 0.3 }}
+          >
             {film.title} | {film.date}
           </Title>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear", delay: 0.4 }}
+          >
+            {film.videoFile.url && <Video videoFile={film.videoFile.url} />}
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear", delay: 0.5 }}
+          >
+            <TagWrapper>
+              {film.tags.map(tag => (
+                <Tag>#{tag} </Tag>
+              ))}
+            </TagWrapper>
+          </motion.div>
 
-          {film.videoFile.url && <Video videoFile={film.videoFile.url} />}
-
-          <TagWrapper>
-            {film.tags.map(tag => (
-              <Tag>#{tag} </Tag>
-            ))}
-          </TagWrapper>
-
-          {film.description && (
-            <Description
-              dangerouslySetInnerHTML={{ __html: film.description.html }}
-            ></Description>
-          )}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: "linear", delay: 0.6 }}
+          >
+            {film.description && (
+              <Description
+                dangerouslySetInnerHTML={{ __html: film.description.html }}
+              ></Description>
+            )}
+          </motion.div>
         </ProjectWrapper>
       </FilmPageWrapper>
     </Layout>
