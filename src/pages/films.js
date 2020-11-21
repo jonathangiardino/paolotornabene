@@ -52,6 +52,8 @@ const BackLink = styled(motion.a)`
   display: block;
   padding-bottom: 2rem;
   cursor: pointer;
+  position: relative;
+  z-index: 10;
 `
 
 const Films = ({ data }) => {
