@@ -81,7 +81,7 @@ const About = () => {
             url
             node {
               childImageSharp {
-                fluid(maxWidth: 700) {
+                fluid(maxWidth: 800) {
                   ...GatsbyImageSharpFluid
                 }
               }
