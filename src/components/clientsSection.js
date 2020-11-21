@@ -37,7 +37,7 @@ const ClientsSection = () => {
             url
             node {
               childImageSharp {
-                fluid(maxWidth: 1000) {
+                fluid(maxWidth: 200) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -47,7 +47,7 @@ const ClientsSection = () => {
             url
             node {
               childImageSharp {
-                fluid(maxWidth: 1000) {
+                fluid(maxWidth: 200) {
                   ...GatsbyImageSharpFluid
                 }
               }

@@ -70,7 +70,7 @@ const AboutSection = () => {
             url
             node {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 600) {
                   ...GatsbyImageSharpFluid
                 }
               }

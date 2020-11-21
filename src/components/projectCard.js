@@ -12,6 +12,9 @@ const ProjectCardContainer = styled.div`
     margin: 2rem 0;
   }
   @media ${props => props.theme.breakpoints.large} {
+    width: 100%;
+  }
+  @media ${props => props.theme.breakpoints.xlarge} {
     width: 60%;
     margin: 2rem auto;
   }

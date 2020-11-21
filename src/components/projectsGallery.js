@@ -12,17 +12,17 @@ const Section = styled.section`
   flex-wrap: wrap;
 `
 const FilmsContainer = styled.div`
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 90%;
-  }
-  @media ${props => props.theme.breakpoints.tablet} {
-    width: 80%;
-  }
   margin: 10rem 0 0 0;
-  width: 60%;
+  width: 90%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  @media ${props => props.theme.breakpoints.tablet} {
+    width: 80%;
+  }
+  @media ${props => props.theme.breakpoints.large} {
+    width: 60%;
+  }
 `
 
 const ProjectsGallery = () => {

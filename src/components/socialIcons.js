@@ -21,6 +21,9 @@ const IconsWrapper = styled(motion.div)`
   @media ${props => props.theme.breakpoints.tablet} {
     margin: 0 auto;
   }
+  @media ${props => props.theme.breakpoints.large} {
+    margin: 0;
+  }
 `
 const IconLink = styled.a`
   cursor: pointer;

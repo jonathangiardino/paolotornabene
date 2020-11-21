@@ -19,12 +19,12 @@ const FilmPageWrapper = styled.div`
 `
 const ProjectWrapper = styled.div`
   padding: 10rem 0 0 0;
-  width: 60%;
+  width: 90%;
   @media ${props => props.theme.breakpoints.tablet} {
     width: 80%;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 90%;
+  @media ${props => props.theme.breakpoints.large} {
+    width: 60%;
   }
 `
 
@@ -144,13 +144,6 @@ export const query = graphql`
         date
         description {
           html
-        }
-      }
-    }
-    rectangle: file(relativePath: { eq: "rectangle.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
         }
       }
     }

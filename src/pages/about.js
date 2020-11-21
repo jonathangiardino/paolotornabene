@@ -18,18 +18,18 @@ const AboutPageWrapper = styled.div`
 `
 const AboutContainer = styled.div`
   padding: 10rem 0 0 0;
-  width: 60%;
+  width: 90%;
   @media ${props => props.theme.breakpoints.tablet} {
     width: 80%;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 90%;
+  @media ${props => props.theme.breakpoints.large} {
+    width: 60%;
   }
 `
 
 const Title = styled(motion.h1)`
   font-family: "Oswald";
-  font-size: 4.5rem;
+  font-size: 3rem;
   line-height: 120%;
   font-weight: normal;
   text-transform: uppercase;
@@ -37,8 +37,8 @@ const Title = styled(motion.h1)`
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: 3.5rem;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    font-size: 3rem;
+  @media ${props => props.theme.breakpoints.xlarge} {
+    font-size: 4.5rem;
   }
 `
 
@@ -81,7 +81,7 @@ const About = () => {
             url
             node {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 700) {
                   ...GatsbyImageSharpFluid
                 }
               }

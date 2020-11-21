@@ -50,15 +50,11 @@ const FooterContainer = styled.div`
 `
 
 const FlexiDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-  @media ${props => props.theme.breakpoints.tablet} {
-    text-align: center;
-    display: block;
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    text-align: center;
-    display: block;
+  text-align: center;
+  display: block;
+  @media ${props => props.theme.breakpoints.large} {
+    display: flex;
+    justify-content: space-between;
   }
 `
 
@@ -90,7 +86,7 @@ const Footer = ({ linkColor }) => {
     query {
       divider: file(relativePath: { eq: "footerDivider.png" }) {
         childImageSharp {
-          fluid {
+          fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }

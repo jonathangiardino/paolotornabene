@@ -44,7 +44,7 @@ const MissionSection = () => {
             url
             node {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 400) {
                   ...GatsbyImageSharpFluid
                 }
               }
