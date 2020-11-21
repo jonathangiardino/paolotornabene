@@ -51,7 +51,7 @@ const BackLink = styled(motion.a)`
   padding-bottom: 2rem;
   cursor: pointer;
   position: relative;
-  z-index: 10;
+  z-index: 6;
 `
 const TagWrapper = styled.div`
   margin: 0 auto;
