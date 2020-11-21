@@ -2,6 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery, Link } from "gatsby"
 
+import { motion } from "framer-motion"
+
 import BackgroundVideo from "./backgroundVideo"
 import HeroTitle from "./heroTitle"
 import SocialIcons from "./socialIcons"
@@ -13,31 +15,30 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  flex-direction: column;
   @media ${props => props.theme.breakpoints.mobile} {
-    flex-direction: column;
     align-items: flex-end;
   }
 `
+const AbsoluteButton = styled(motion.div)`
+  position: absolute;
+  bottom: 6%;
+  right: 6%;
+  @media ${props => props.theme.breakpoints.mobile} {
+    position: relative;
+    text-align: right;
+    padding: ${props => props.theme.spacing.medium} 0;
+  }
+`
 
-const ProjectsButton = styled(Link)`
+const SmallButton = styled(Link)`
   font-weight: black;
   text-transform: uppercase;
   letter-spacing: 0.5rem;
-  writing-mode: vertical-rl;
-  padding: ${props => props.theme.spacing.xsmall};
   cursor: pointer;
   z-index: 5;
   transition: all 0.2s ease-in-out;
   color: ${props => props.theme.colors.yellow} !important;
-  &:hover {
-    transform: translateY(0.5rem);
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    position: relative;
-    writing-mode: horizontal-tb;
-    text-align: right;
-  }
 `
 
 const AbsoluteContainer = styled.div`
@@ -70,7 +71,13 @@ const Hero = () => {
       <BackgroundVideo source={hero.heroVideo.url} />
 
       <HeroTitle name="Paolo Tornabene" title={hero.header} />
-      <ProjectsButton to="/#projects">work &#8594;</ProjectsButton>
+      <AbsoluteButton
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 2.1, ease: "linear" }}
+      >
+        <SmallButton to="/#projects">work &darr;</SmallButton>
+      </AbsoluteButton>
 
       <AbsoluteContainer>
         <SocialIcons />

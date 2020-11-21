@@ -18,8 +18,8 @@ if (typeof window !== "undefined") {
 const Body = styled.div`
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
+  width: 100vw;
+  max-width: 100%;
   text-decoration: "none";
   margin: "0 auto";
   font-family: "Reem Kufi";

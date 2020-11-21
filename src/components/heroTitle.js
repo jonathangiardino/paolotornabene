@@ -57,17 +57,17 @@ const HeroTitle = ({ name, title }) => {
     <TextContainer>
       <NameContainer>
         <Name
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, ease: "linear" }}
+          transition={{ duration: 0.3, delay: 1.5, ease: "linear" }}
         >
           {name}
         </Name>
       </NameContainer>
       <HeroMessage
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 0.5, y: 0 }}
-        transition={{ duration: 0.3, delay: 0.3, ease: "linear" }}
+        transition={{ duration: 0.3, delay: 1.8, ease: "linear" }}
       >
         {title}
       </HeroMessage>
