@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 
 const VideoContainer = styled(motion.div)`
-  width: 37.5rem;
+  display: none;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -13,14 +13,17 @@ const VideoContainer = styled(motion.div)`
   text-align: center;
   z-index: 1;
   opacity: 0.5;
-  @media ${props => props.theme.breakpoints.large} {
-    width: 50rem;
-  }
   @media ${props => props.theme.breakpoints.tablet} {
+    display: block;
     width: 25rem;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    display: none;
+  @media ${props => props.theme.breakpoints.medium} {
+    display: block;
+    width: 37.5rem;
+  }
+  @media ${props => props.theme.breakpoints.xlarge} {
+    display: block;
+    width: 50rem;
   }
 `
 const VideoSource = styled.video`

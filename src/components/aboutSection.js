@@ -12,16 +12,20 @@ const Section = styled.section`
 `
 
 const AboutWrapper = styled.div`
-  width: 60%;
+  width: 90%;
   @media ${props => props.theme.breakpoints.tablet} {
     width: 80%;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 90%;
+  @media ${props => props.theme.breakpoints.large} {
+    width: 60%;
   }
 `
 
 const AboutText = styled.h1`
+  @media ${props => props.theme.breakpoints.mobile} {
+    font-size: 2rem;
+    width: 90%;
+  }
   font-family: "Oswald";
   font-size: 3rem;
   line-height: 120%;
@@ -29,10 +33,6 @@ const AboutText = styled.h1`
   text-transform: uppercase;
   display: inline;
   text-align: left;
-  @media ${props => props.theme.breakpoints.mobile} {
-    font-size: 2rem;
-    width: 90%;
-  }
 `
 const LinkText = styled(AboutText)`
   color: ${props => props.theme.colors.yellow};
@@ -50,14 +50,14 @@ const Divider = styled.span`
 `
 
 const ImageContainer = styled.div`
-  width: 60%;
-  padding-top: 2rem;
-  @media ${props => props.theme.breakpoints.tablet} {
-    width: 80%;
-  }
   @media ${props => props.theme.breakpoints.mobile} {
     width: 90%;
   }
+  @media ${props => props.theme.breakpoints.tablet} {
+    width: 80%;
+  }
+  width: 60%;
+  padding-top: 2rem;
 `
 
 const AboutSection = () => {

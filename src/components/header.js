@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { motion } from "framer-motion"
@@ -80,13 +80,15 @@ const Header = ({ openMenu }) => {
       {theme => (
         <Nav>
           <Logo>
-            <Img
-              fixed={
-                theme.isDark
-                  ? logo.logoLight.childImageSharp.fixed
-                  : logo.logoDark.childImageSharp.fixed
-              }
-            />
+            <Link to="/">
+              <Img
+                fixed={
+                  theme.isDark
+                    ? logo.logoLight.childImageSharp.fixed
+                    : logo.logoDark.childImageSharp.fixed
+                }
+              />
+            </Link>
           </Logo>
 
           <Menu>

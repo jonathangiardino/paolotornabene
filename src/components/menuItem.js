@@ -8,6 +8,12 @@ const TextContainer = styled.div`
 `
 
 const ItemName = styled.h2`
+  @media ${props => props.theme.breakpoints.mobile} {
+    font-size: 3rem;
+  }
+  @media ${props => props.theme.breakpoints.tablet} {
+    font-size: 4rem;
+  }
   font-family: "Oswald";
   font-weight: black;
   font-size: 4rem;
@@ -19,12 +25,6 @@ const ItemName = styled.h2`
     color: ${props => props.theme.colors.yellow} !important;
     text-decoration: line-through;
     transform: translateX(0.2rem);
-  }
-  @media ${props => props.theme.breakpoints.tablet} {
-    font-size: 4rem;
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    font-size: 3rem;
   }
 `
 

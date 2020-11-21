@@ -9,6 +9,9 @@ import HeroTitle from "./heroTitle"
 import SocialIcons from "./socialIcons"
 
 const HeroContainer = styled.div`
+  @media ${props => props.theme.breakpoints.mobile} {
+    align-items: flex-end;
+  }
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -16,18 +19,21 @@ const HeroContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  @media ${props => props.theme.breakpoints.mobile} {
-    align-items: flex-end;
-  }
 `
 const AbsoluteButton = styled(motion.div)`
-  position: absolute;
-  bottom: 6%;
-  right: 6%;
-  @media ${props => props.theme.breakpoints.mobile} {
-    position: relative;
-    text-align: right;
+  position: relative;
+  text-align: right;
+  padding: ${props => props.theme.spacing.medium};
+  @media ${props => props.theme.breakpoints.tablet} {
     padding: ${props => props.theme.spacing.medium} 0;
+    position: absolute;
+    bottom: 1.5%;
+    right: 3%;
+  }
+  @media ${props => props.theme.breakpoints.large} {
+    position: absolute;
+    bottom: 2%;
+    right: 6%;
   }
 `
 

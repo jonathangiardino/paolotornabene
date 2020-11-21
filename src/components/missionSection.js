@@ -22,16 +22,16 @@ const MissionText = styled.h1`
 `
 
 const ImageContainer = styled.div`
-  width: 30%;
-  @media ${props => props.theme.breakpoints.large} {
-    width: 25%;
+  @media ${props => props.theme.breakpoints.mobile} {
+    width: 80%;
   }
   @media ${props => props.theme.breakpoints.tablet} {
     width: 60%;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 80%;
+  @media ${props => props.theme.breakpoints.large} {
+    width: 25%;
   }
+  width: 30%;
 `
 
 const MissionSection = () => {

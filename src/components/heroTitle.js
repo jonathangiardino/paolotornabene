@@ -12,43 +12,45 @@ const TextContainer = styled.div`
 `
 const HeroMessage = styled(motion.h1)`
   font-family: "Oswald";
-  font-size: 4.5rem;
   line-height: 120%;
   font-weight: normal;
   text-transform: uppercase;
   z-index: 3;
   opacity: 0.6;
+  font-size: 2.5rem;
+  text-align: right;
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: 3rem;
+    text-align: left;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    font-size: 2.5rem;
-    text-align: right;
+  @media ${props => props.theme.breakpoints.large} {
+    font-size: 4.5rem;
   }
 `
 const NameContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   @media ${props => props.theme.breakpoints.mobile} {
     flex-direction: column-reverse;
     align-items: flex-end;
   }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 const Name = styled(motion.h2)`
   font-family: "Oswald";
   font-weight: black;
-  font-size: 4.5rem;
   line-height: 120%;
   z-index: 3;
   text-transform: uppercase;
+  font-size: 2rem;
+  text-align: right;
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: 3rem;
+    text-align: left;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    font-size: 2rem;
-    text-align: right;
+  @media ${props => props.theme.breakpoints.large} {
+    font-size: 4.5rem;
   }
 `
 

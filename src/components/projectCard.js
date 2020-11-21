@@ -5,18 +5,22 @@ import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
   width: 100%;
-  margin: 2rem 0;
+  margin: 1rem 0;
   position: relative;
-  @media ${props => props.theme.breakpoints.tablet} {
+  @media ${props => props.theme.breakpoints.medium} {
     width: 100%;
+    margin: 2rem 0;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    width: 100%;
-    margin: 1rem 0;
+  @media ${props => props.theme.breakpoints.large} {
+    width: 60%;
+    margin: 2rem auto;
   }
 `
 
 const BoxImage = styled.div`
+  @media ${props => props.theme.breakpoints.mobile} {
+    height: 160px;
+  }
   height: 300px;
   position: relative;
   overflow: hidden;
@@ -26,15 +30,12 @@ const BoxImage = styled.div`
   &:hover .project-title {
     opacity: 1;
   }
-  @media ${props => props.theme.breakpoints.mobile} {
-    height: 160px;
-  }
 `
 
 const ProjectTitle = styled.h1`
   opacity: 0;
   line-height: 1.2;
-  font-size: 2rem;
+  font-size: ${props => props.theme.fontSize.small};
   font-family: "Oswald";
   text-align: center;
   text-transform: uppercase;
@@ -46,9 +47,6 @@ const ProjectTitle = styled.h1`
   transition: all 0.2s ease-in-out;
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: ${props => props.theme.fontSize.title};
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    font-size: ${props => props.theme.fontSize.smallTitle};
   }
 `
 
