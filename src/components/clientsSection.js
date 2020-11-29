@@ -13,16 +13,22 @@ const Section = styled.section`
 `
 
 const ClientsContainer = styled.div`
-  width: 60%;
+  width: 85%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  @media ${props => props.theme.breakpoints.medium} {
+    width: 70%;
+  }
 `
 
 const LogoWrapper = styled.div`
-  width: 11rem;
+  width: 5rem;
   margin: 3rem 2rem;
+  @media ${props => props.theme.breakpoints.medium} {
+    width: 11rem;
+  }
 `
 
 const ClientsSection = () => {
