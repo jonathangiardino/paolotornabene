@@ -19,10 +19,6 @@ const VideoContainer = styled(motion.div)`
   }
   @media ${props => props.theme.breakpoints.medium} {
     display: block;
-    width: 37.5rem;
-  }
-  @media ${props => props.theme.breakpoints.xlarge} {
-    display: block;
     width: 50rem;
   }
 `

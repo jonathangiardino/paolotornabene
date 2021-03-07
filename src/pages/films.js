@@ -108,7 +108,6 @@ export const data = graphql`
         id
         title
         tags
-        date
         featured
         imageCover {
           url

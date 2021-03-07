@@ -13,16 +13,10 @@ const Section = styled.section`
 `
 const FilmsContainer = styled.div`
   margin: 10rem 0 0 0;
-  width: 90%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  @media ${props => props.theme.breakpoints.tablet} {
-    width: 80%;
-  }
-  @media ${props => props.theme.breakpoints.large} {
-    width: 60%;
-  }
 `
 
 const ProjectsGallery = () => {

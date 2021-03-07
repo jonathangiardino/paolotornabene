@@ -93,7 +93,7 @@ const Film = ({ data }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "linear", delay: 0.3 }}
           >
-            {film.title} | {film.date}
+            {film.title}
           </Title>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -143,7 +143,6 @@ export const query = graphql`
         id
         title
         tags
-        date
         description {
           html
         }

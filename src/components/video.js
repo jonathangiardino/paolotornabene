@@ -11,13 +11,15 @@ const Video = ({ videoFile }) => (
   <VideoContainer
     playsinline
     webkit-playsinline
-    autoPlay
     muted
     loop
     controls
     controlsList="nodownload"
+    autobuffer
+    preload="auto"
   >
-    <source src={videoFile} type="video/mp4" />
+    <source src={videoFile} type="video/quicktime" />
+    <source src={videoFile} type='video/mp4; codecs="avc1.42E01E, mp4a.40.2' />
   </VideoContainer>
 )
 

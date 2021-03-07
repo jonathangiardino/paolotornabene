@@ -15,7 +15,6 @@ const ProjectCardContainer = styled.div`
     width: 100%;
   }
   @media ${props => props.theme.breakpoints.xlarge} {
-    width: 60%;
     margin: 2rem auto;
   }
 `
@@ -24,7 +23,7 @@ const BoxImage = styled.div`
   @media ${props => props.theme.breakpoints.mobile} {
     height: 160px;
   }
-  height: 300px;
+  height: 60vh;
   position: relative;
   overflow: hidden;
   &:hover .img-project {
@@ -32,6 +31,11 @@ const BoxImage = styled.div`
   }
   &:hover .project-title {
     opacity: 1;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: center center;
   }
 `
 
@@ -63,9 +67,7 @@ const ProjectCard = ({ title, imageSrc, path, date }) => {
         }}
       >
         <BoxImage>
-          <ProjectTitle className="project-title">
-            {title} | {date}
-          </ProjectTitle>
+          <ProjectTitle className="project-title">{title}</ProjectTitle>
 
           <Img className="img-project" fluid={imageSrc} />
         </BoxImage>
