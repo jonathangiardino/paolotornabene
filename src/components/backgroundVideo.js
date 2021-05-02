@@ -4,18 +4,20 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 
 const VideoContainer = styled(motion.div)`
-  display: none;
+  /* display: none; */
   position: absolute;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
+  top: 0;
   text-align: center;
   z-index: 1;
   opacity: 0.5;
   @media ${props => props.theme.breakpoints.tablet} {
     display: block;
     width: 25rem;
+    top: unset;
   }
   @media ${props => props.theme.breakpoints.medium} {
     display: block;

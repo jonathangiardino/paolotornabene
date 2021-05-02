@@ -100,7 +100,9 @@ const Film = ({ data }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: "linear", delay: 0.4 }}
           >
-            {film.videoFile.url && <Video videoFile={film.videoFile.url} />}
+            {film.vimeoId && (
+              <Video title={film.title} vimeoId={film.vimeoId} />
+            )}
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -137,9 +139,7 @@ export const query = graphql`
   query FilmAndImage($id: ID!) {
     gcms {
       film(where: { id: $id }) {
-        videoFile {
-          url
-        }
+        vimeoId
         id
         title
         tags

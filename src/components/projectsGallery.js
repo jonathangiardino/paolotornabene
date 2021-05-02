@@ -10,6 +10,10 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding: 0 2rem;
+  @media ${props => props.theme.breakpoints.medium} {
+    padding: 0 4rem;
+  }
 `
 const FilmsContainer = styled.div`
   margin: 10rem 0 0 0;
@@ -27,7 +31,6 @@ const ProjectsGallery = () => {
           id
           title
           tags
-          date
           featured
           imageCover {
             url
@@ -59,7 +62,6 @@ const ProjectsGallery = () => {
                 title={film.title}
                 imageSrc={film.imageCover.node.childImageSharp.fluid}
                 path={slugify(film.title, { lower: true })}
-                date={film.date}
               />
             )
         )}

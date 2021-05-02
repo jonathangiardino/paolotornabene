@@ -49,7 +49,7 @@
   "scripts": {
     "preload-fonts": "gatsby-preload-fonts",
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby build && gatsby serve",

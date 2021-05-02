@@ -21,9 +21,9 @@ const ProjectCardContainer = styled.div`
 
 const BoxImage = styled.div`
   @media ${props => props.theme.breakpoints.mobile} {
-    height: 160px;
+    height: 200px;
   }
-  height: 60vh;
+  height: 70vh;
   position: relative;
   overflow: hidden;
   &:hover .img-project {
@@ -57,7 +57,7 @@ const ProjectTitle = styled.h1`
   }
 `
 
-const ProjectCard = ({ title, imageSrc, path, date }) => {
+const ProjectCard = ({ title, imageSrc, path }) => {
   return (
     <ProjectCardContainer>
       <Link
