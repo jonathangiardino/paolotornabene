@@ -110,7 +110,7 @@ const FullPageMenu = ({ closeMenu, menuState }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: "linear" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
           style={{
             backgroundColor: theme.isDark ? "#0a0a0f" : "#fff",
             color: theme.isDark ? "#fff" : "#0a0a0f",
@@ -129,7 +129,7 @@ const FullPageMenu = ({ closeMenu, menuState }) => {
             onClick={closeMenu}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "linear" }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeInOut" }}
           >
             <Icon
               name="close"

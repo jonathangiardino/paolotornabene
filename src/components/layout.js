@@ -6,7 +6,7 @@ import Header from "./header"
 import FullPageMenu from "./fullPageMenu"
 import Footer from "./footer"
 
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence, AnimateSharedLayout } from "framer-motion"
 
 import "./layout.css"
 
@@ -39,14 +39,16 @@ const Layout = ({ children }) => {
               color: theme.isDark ? "#fff" : "#0a0a0f",
             }}
           >
-            <AnimatePresence>
-              {menuOpen && (
-                <FullPageMenu
-                  closeMenu={() => setMenuOpen(menuOpen => !menuOpen)}
-                  menuState={menuOpen}
-                />
-              )}
-            </AnimatePresence>
+            <AnimateSharedLayout>
+              <AnimatePresence>
+                {menuOpen && (
+                  <FullPageMenu
+                    closeMenu={() => setMenuOpen(menuOpen => !menuOpen)}
+                    menuState={menuOpen}
+                  />
+                )}
+              </AnimatePresence>
+            </AnimateSharedLayout>
 
             <Header openMenu={() => setMenuOpen(menuOpen => !menuOpen)} />
 

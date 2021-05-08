@@ -23,7 +23,8 @@ const HeroContainer = styled.div`
 const AbsoluteButton = styled(motion.div)`
   position: relative;
   text-align: right;
-  padding: ${props => props.theme.spacing.medium};
+  padding: 0 ${props => props.theme.spacing.medium};
+  z-index: 20;
   @media ${props => props.theme.breakpoints.tablet} {
     padding: ${props => props.theme.spacing.medium} 0;
     position: absolute;
@@ -80,7 +81,7 @@ const Hero = () => {
       <AbsoluteButton
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3, delay: 2.1, ease: "linear" }}
+        transition={{ duration: 0.3, delay: 2.1, ease: "easeInOut" }}
       >
         <SmallButton to="/#projects">work &darr;</SmallButton>
       </AbsoluteButton>

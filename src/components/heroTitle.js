@@ -4,11 +4,12 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 
 const TextContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
   z-index: 2;
   padding: ${props => props.theme.spacing.medium};
-  @media ${props => props.theme.breakpoints.mobile} {
-    margin-top: 2rem;
-  }
 `
 const HeroMessage = styled(motion.h1)`
   font-family: "Oswald";
@@ -17,7 +18,7 @@ const HeroMessage = styled(motion.h1)`
   text-transform: uppercase;
   z-index: 3;
   opacity: 0.6;
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-align: right;
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: 3rem;
@@ -43,7 +44,7 @@ const Name = styled(motion.h2)`
   line-height: 120%;
   z-index: 3;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: right;
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: 3rem;
@@ -61,7 +62,7 @@ const HeroTitle = ({ name, title }) => {
         <Name
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 1.5, ease: "linear" }}
+          transition={{ duration: 0.3, delay: 1.5, ease: "easeInOut" }}
         >
           {name}
         </Name>
@@ -69,7 +70,7 @@ const HeroTitle = ({ name, title }) => {
       <HeroMessage
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 0.5, y: 0 }}
-        transition={{ duration: 0.3, delay: 1.8, ease: "linear" }}
+        transition={{ duration: 0.3, delay: 1.8, ease: "easeInOut" }}
       >
         {title}
       </HeroMessage>

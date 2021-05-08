@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 const Section = styled.section`
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +17,7 @@ const MissionText = styled.h1`
   font-family: "Oswald";
   text-transform: uppercase;
   padding: 2rem 0 0;
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: bold;
   line-height: 120%;
   text-align: center;

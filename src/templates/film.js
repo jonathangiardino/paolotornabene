@@ -86,13 +86,14 @@ const Still = styled(motion.div)`
   transition: border 0.5s ease-in-out;
   margin-bottom: 2rem;
   pointer-events: none;
+  border: 4px solid ${props => props.theme.background.dark};
   @media ${props => props.theme.breakpoints.tablet} {
     pointer-events: all;
-    width: 30%;
+    width: 32%;
     height: auto;
     margin-bottom: 0;
     &:hover {
-      border: 1px solid ${props => props.theme.colors.yellow};
+      border: 4px solid ${props => props.theme.colors.yellow};
     }
   }
 
@@ -126,6 +127,7 @@ const StillZoomed = styled(motion.div)`
   max-width: 100%;
   height: auto;
   margin-bottom: 2rem;
+  border: 4px solid ${props => props.theme.colors.yellow};
 
   .gatsby-image-wrapper {
     width: 100%;
@@ -204,7 +206,7 @@ const Film = ({ data }) => {
                       layout
                       layoutId={s.title.split(" ").join("-")}
                       transition={{
-                        duration: 0.3,
+                        duration: 0.4,
                         ease: "easeInOut",
                       }}
                     >

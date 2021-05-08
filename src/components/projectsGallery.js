@@ -10,7 +10,7 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0 2rem;
+  padding: 0 1rem;
   @media ${props => props.theme.breakpoints.medium} {
     padding: 0 4rem;
   }

@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
   width: 100%;
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   position: relative;
   @media ${props => props.theme.breakpoints.medium} {
     width: 100%;
@@ -20,10 +20,6 @@ const ProjectCardContainer = styled.div`
 `
 
 const BoxImage = styled.div`
-  @media ${props => props.theme.breakpoints.mobile} {
-    height: 200px;
-  }
-
   position: relative;
   overflow: hidden;
   &:hover .img-project {
@@ -71,7 +67,6 @@ const ProjectCard = ({ title, imageSrc, path }) => {
       >
         <BoxImage>
           <ProjectTitle className="project-title">{title}</ProjectTitle>
-
           <Img className="img-project" fluid={imageSrc} />
         </BoxImage>
       </Link>

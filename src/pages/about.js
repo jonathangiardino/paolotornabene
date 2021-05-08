@@ -105,7 +105,7 @@ const About = () => {
           <BackLink
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "linear" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             onClick={goBack}
           >
             &#8592; Back
@@ -113,7 +113,7 @@ const About = () => {
           <Title
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "linear", delay: 0.3 }}
+            transition={{ duration: 0.3, ease: "easeInOut", delay: 0.3 }}
             onClick={goBack}
           >
             About me

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef, useEffect } from "react"
 import styled from "styled-components"
 
 import { motion } from "framer-motion"
@@ -29,13 +29,26 @@ const VideoSource = styled.video`
 `
 
 const BackgroundVideo = ({ source }) => {
+  const videoRef = useRef()
+
+  useEffect(() => {
+    videoRef.current.play()
+  }, [])
+
   return (
     <VideoContainer
       initial={{ opacity: 0 }}
       animate={{ opacity: 0.5 }}
-      transition={{ duration: 0.3, delay: 0.6, ease: "linear" }}
+      transition={{ duration: 0.6, delay: 0.6, ease: "easeInOut" }}
     >
-      <VideoSource playsinline webkit-playsinline autoPlay muted loop>
+      <VideoSource
+        ref={videoRef}
+        playsinline
+        webkit-playsinline
+        autoPlay
+        muted
+        loop
+      >
         <source src={source} type="video/mp4" />
         Your browser does not support HTML5 video.
       </VideoSource>
