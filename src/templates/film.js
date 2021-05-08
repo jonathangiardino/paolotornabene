@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { navigate } from "@reach/router"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import Layout from "../components/layout"
 import Video from "../components/video"
 
@@ -78,25 +78,22 @@ const StillsContainer = styled.div`
   }
 `
 
-const Still = styled.div`
+const Still = styled(motion.div)`
   width: 100vw;
   max-width: 100%;
   height: auto;
   cursor: pointer;
-  transition: filter 0.5s ease-in-out;
+  transition: border 0.5s ease-in-out;
   margin-bottom: 2rem;
   pointer-events: none;
   @media ${props => props.theme.breakpoints.tablet} {
     pointer-events: all;
     width: 30%;
-    height: 200px;
+    height: auto;
     margin-bottom: 0;
     &:hover {
-      filter: hue-rotate(180deg);
+      border: 1px solid ${props => props.theme.colors.yellow};
     }
-  }
-  @media ${props => props.theme.breakpoints.large} {
-    height: 170px;
   }
 
   .gatsby-image-wrapper {
@@ -111,7 +108,7 @@ const Still = styled.div`
   }
 `
 
-const StillsZoomed = styled.div`
+const StillZoomedContainer = styled(motion.div)`
   position: fixed;
   z-index: 10;
   overflow-y: auto;
@@ -120,11 +117,11 @@ const StillsZoomed = styled.div`
   width: 100vw;
   max-width: 100%;
   height: 100vh;
-  padding: 2rem;
+  padding: 2rem 4rem;
   background-color: ${props => props.theme.background.dark};
 `
 
-const StillZoomed = styled.div`
+const StillZoomed = styled(motion.div)`
   width: 100vw;
   max-width: 100%;
   height: auto;
@@ -138,14 +135,11 @@ const StillZoomed = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 `
 
 const Close = styled.div`
-  position: sticky;
-  z-index: 11;
-  top: 0rem;
   margin-left: 2rem;
   font-size: 1rem;
 `
@@ -156,122 +150,140 @@ const Film = ({ data }) => {
   }
 
   const [zoomedIn, setZoomedIn] = useState(false)
+  const [selected, setSelected] = useState(0)
 
   const { film } = data.gcms
   const { stills } = film
 
-  const handleZoomIn = e => {
+  const handleZoomIn = index => {
+    setSelected(index)
     setZoomedIn(true)
   }
 
   const handleZoomOut = e => {
     setZoomedIn(false)
-    navigate(-1)
   }
 
   return (
     <Layout>
-      <FilmPageWrapper>
-        <ProjectWrapper>
-          <BackLink
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "linear" }}
-            onClick={goBack}
-          >
-            &#8592; Back
-          </BackLink>
+      <AnimateSharedLayout type="switch">
+        <FilmPageWrapper>
+          <ProjectWrapper>
+            <BackLink
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              onClick={goBack}
+            >
+              &#8592; Back
+            </BackLink>
 
-          <Title
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "linear", delay: 0.3 }}
-          >
-            {film.title}
-          </Title>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "linear", delay: 0.4 }}
-          >
-            {film.vimeoId && (
-              <Video title={film.title} vimeoId={film.vimeoId} />
-            )}
-          </motion.div>
-          {stills.length && (
-            <StillsContainer>
-              {stills.map(s => {
-                return (
-                  <Still
-                    onClick={handleZoomIn}
-                    key={s.imageAsset.url}
-                    data-target={s.title}
-                  >
-                    <Link to={`#${s.title.split(" ").join("-")}`}>
+            <Title
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut", delay: 0.3 }}
+            >
+              {film.title}
+            </Title>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut", delay: 0.4 }}
+            >
+              {film.vimeoId && (
+                <Video title={film.title} vimeoId={film.vimeoId} />
+              )}
+            </motion.div>
+            {stills.length ? (
+              <StillsContainer>
+                {stills.map((s, i) => {
+                  return (
+                    <Still
+                      onClick={() => handleZoomIn(i)}
+                      key={s.imageAsset.url}
+                      layout
+                      layoutId={s.title.split(" ").join("-")}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut",
+                      }}
+                    >
                       <Img
                         fluid={s.imageAsset.node.childImageSharp.fluid}
                         alt={s.title}
                       />
-                    </Link>
-                  </Still>
-                )
-              })}
-              {zoomedIn && (
-                <StillsZoomed>
-                  <Close onClick={handleZoomOut}>
-                    <BackLink
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, ease: "linear" }}
+                    </Still>
+                  )
+                })}
+                <AnimatePresence>
+                  {zoomedIn && (
+                    <StillZoomedContainer
+                      initial={{ backgroundColor: "transparent" }}
+                      animate={{
+                        backgroundColor: "rgba(0, 0, 0, 0.9)",
+                      }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      exit={{ backgroundColor: "transparent" }}
                     >
-                      Close
-                    </BackLink>
-                  </Close>
-                  {stills.map(s => {
-                    return (
-                      <>
-                        <StillZoomed
-                          onClick={handleZoomIn}
-                          key={s.imageAsset.url}
-                          id={s.title.split(" ").join("-")}
+                      <Close onClick={handleZoomOut}>
+                        <BackLink
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          exit={{ opacity: 0, y: 30 }}
                         >
-                          <Img
-                            fluid={s.imageAsset.node.childImageSharp.fluid}
-                            alt={s.title}
-                          />
-                        </StillZoomed>
-                      </>
-                    )
-                  })}
-                </StillsZoomed>
-              )}
-            </StillsContainer>
-          )}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "linear", delay: 0.5 }}
-          >
-            <TagWrapper>
-              {film.tags.map(tag => (
-                <Tag id={tag}>#{tag} </Tag>
-              ))}
-            </TagWrapper>
-          </motion.div>
+                          Close
+                        </BackLink>
+                      </Close>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "linear", delay: 0.6 }}
-          >
-            {film.description && (
-              <Description
-                dangerouslySetInnerHTML={{ __html: film.description.html }}
-              ></Description>
-            )}
-          </motion.div>
-        </ProjectWrapper>
-      </FilmPageWrapper>
+                      <StillZoomed
+                        key={stills[selected].imageAsset.url}
+                        layout
+                        layoutId={stills[selected].title.split(" ").join("-")}
+                        transition={{
+                          duration: 0.4,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <Img
+                          fluid={
+                            stills[selected].imageAsset.node.childImageSharp
+                              .fluid
+                          }
+                          alt={stills[selected].title}
+                        />
+                      </StillZoomed>
+                    </StillZoomedContainer>
+                  )}
+                </AnimatePresence>
+              </StillsContainer>
+            ) : null}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut", delay: 0.5 }}
+            >
+              <TagWrapper>
+                {film.tags.map(tag => (
+                  <Tag id={tag}>#{tag} </Tag>
+                ))}
+              </TagWrapper>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut", delay: 0.6 }}
+            >
+              {film.description && (
+                <Description
+                  dangerouslySetInnerHTML={{ __html: film.description.html }}
+                ></Description>
+              )}
+            </motion.div>
+          </ProjectWrapper>
+        </FilmPageWrapper>
+      </AnimateSharedLayout>
     </Layout>
   )
 }
@@ -295,7 +307,7 @@ export const query = graphql`
             url
             node {
               childImageSharp {
-                fluid(maxWidth: 1000) {
+                fluid(maxWidth: 1280) {
                   ...GatsbyImageSharpFluid
                 }
               }

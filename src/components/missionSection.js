@@ -13,11 +13,13 @@ const Section = styled.section`
 `
 
 const MissionText = styled.h1`
+  width: 80%;
   font-family: "Oswald";
   text-transform: uppercase;
   padding: 2rem 0 0;
-  font-size: 3rem;
-  font-weight: normal;
+  font-size: 6rem;
+  font-weight: bold;
+  line-height: 120%;
   text-align: center;
 `
 
@@ -60,9 +62,9 @@ const MissionSection = () => {
   } = data
   return (
     <Section>
-      <ImageContainer>
+      {/* <ImageContainer>
         <Img fluid={mission.missionImage.node.childImageSharp.fluid} />
-      </ImageContainer>
+      </ImageContainer> */}
 
       <MissionText>{mission.missionText}</MissionText>
     </Section>

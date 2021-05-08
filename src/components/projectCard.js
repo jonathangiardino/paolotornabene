@@ -23,7 +23,7 @@ const BoxImage = styled.div`
   @media ${props => props.theme.breakpoints.mobile} {
     height: 200px;
   }
-  height: 70vh;
+
   position: relative;
   overflow: hidden;
   &:hover .img-project {
@@ -40,6 +40,7 @@ const BoxImage = styled.div`
 `
 
 const ProjectTitle = styled.h1`
+  width: 85%;
   opacity: 0;
   line-height: 1.2;
   font-size: ${props => props.theme.fontSize.small};
@@ -52,8 +53,10 @@ const ProjectTitle = styled.h1`
   transform: translate(-50%, 50%);
   z-index: 0;
   transition: all 0.2s ease-in-out;
+  color: white;
+  mix-blend-mode: difference;
   @media ${props => props.theme.breakpoints.tablet} {
-    font-size: ${props => props.theme.fontSize.title};
+    font-size: ${props => props.theme.fontSize.bigTitle};
   }
 `
 
