@@ -25,6 +25,7 @@ const VideoContainer = styled(motion.div)`
   }
 `
 const VideoSource = styled.video`
+  display: none;
   width: 100%;
   pointer-events: none;
   &::-webkit-media-controls-panel {
