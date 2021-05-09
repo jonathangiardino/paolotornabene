@@ -24,7 +24,7 @@ const AbsoluteButton = styled(motion.div)`
   position: relative;
   text-align: right;
   padding: 0 ${props => props.theme.spacing.medium};
-  z-index: 20;
+  z-index: 5;
   @media ${props => props.theme.breakpoints.tablet} {
     padding: ${props => props.theme.spacing.medium} 0;
     position: absolute;

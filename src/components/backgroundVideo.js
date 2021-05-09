@@ -26,6 +26,7 @@ const VideoContainer = styled(motion.div)`
 `
 const VideoSource = styled.video`
   width: 100%;
+  pointer-events: none;
 `
 
 const BackgroundVideo = ({ source }) => {
@@ -48,6 +49,7 @@ const BackgroundVideo = ({ source }) => {
         autoPlay
         muted
         loop
+        controls="false"
       >
         <source src={source} type="video/mp4" />
         Your browser does not support HTML5 video.
