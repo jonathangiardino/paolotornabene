@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 
 const VideoContainer = styled(motion.div)`
-  /* display: none; */
+  display: none;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -25,7 +25,6 @@ const VideoContainer = styled(motion.div)`
   }
 `
 const VideoSource = styled.video`
-  display: none;
   width: 100%;
   pointer-events: none;
   &::-webkit-media-controls-panel {
