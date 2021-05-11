@@ -202,7 +202,7 @@ const Film = ({ data }) => {
                   return (
                     <Still
                       onClick={() => handleZoomIn(i)}
-                      key={s.imageAsset.url}
+                      key={i}
                       layout
                       layoutId={s.title.split(" ").join("-")}
                       transition={{
@@ -239,7 +239,7 @@ const Film = ({ data }) => {
                       </Close>
 
                       <StillZoomed
-                        key={stills[selected].imageAsset.url}
+                        key={selected}
                         layout
                         layoutId={stills[selected].title.split(" ").join("-")}
                         transition={{
