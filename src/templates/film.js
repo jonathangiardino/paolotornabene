@@ -147,15 +147,17 @@ const Close = styled.div`
 `
 
 const Film = ({ data }) => {
-  const goBack = () => {
-    navigate(-1)
-  }
-
   const [zoomedIn, setZoomedIn] = useState(false)
   const [selected, setSelected] = useState(0)
 
   const { film } = data.gcms
   const { stills } = film
+
+  console.log(data.gcms)
+
+  const goBack = () => {
+    navigate(-1)
+  }
 
   const handleZoomIn = index => {
     setSelected(index)
@@ -196,7 +198,7 @@ const Film = ({ data }) => {
                 <Video title={film.title} vimeoId={film.vimeoId} />
               )}
             </motion.div>
-            {stills.length ? (
+            {stills.length > 0 ? (
               <StillsContainer>
                 {stills.map((s, i) => {
                   return (
@@ -303,7 +305,7 @@ export const query = graphql`
         description {
           html
         }
-        stills(first: 3) {
+        stills {
           title
           imageAsset {
             url
