@@ -82,18 +82,15 @@ const Films = ({ data }) => {
           >
             Films
           </Title>
-          {films.map(
-            film =>
-              film.featured && (
-                <ProjectCard
-                  key={film.id}
-                  title={film.title}
-                  imageSrc={film.imageCover.node.childImageSharp.fluid}
-                  path={slugify(film.title, { lower: true })}
-                  date={film.date}
-                />
-              )
-          )}
+          {films.map(film => (
+            <ProjectCard
+              key={film.id}
+              title={film.title}
+              imageSrc={film.imageCover.node.childImageSharp.fluid}
+              path={slugify(film.title, { lower: true })}
+              date={film.date}
+            />
+          ))}
         </FilmsContainer>
       </FilmsPageWrapper>
     </Layout>
