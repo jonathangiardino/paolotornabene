@@ -78,8 +78,8 @@ const Footer = ({ linkColor }) => {
   const links = [
     { linkText: "About", path: "/about" },
     { linkText: "Films", path: "/films" },
+    { linkText: "Stills", path: "/stills" },
     { linkText: "Contact", path: "/#contact" },
-    { linkText: "Hire me", path: "/#contact" },
   ]
 
   const data = useStaticQuery(graphql`

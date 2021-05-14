@@ -36,7 +36,7 @@ const BoxImage = styled.div`
 `
 
 const ProjectTitle = styled.h1`
-  width: 85%;
+  width: 100%;
   opacity: 0;
   line-height: 1.2;
   font-size: ${props => props.theme.fontSize.small};
@@ -52,7 +52,7 @@ const ProjectTitle = styled.h1`
   color: white;
   mix-blend-mode: difference;
   @media ${props => props.theme.breakpoints.tablet} {
-    font-size: ${props => props.theme.fontSize.bigTitle};
+    font-size: ${props => props.theme.fontSize.title};
   }
 `
 

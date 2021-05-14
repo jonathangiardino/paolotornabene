@@ -38,6 +38,8 @@ const LinkText = styled(AboutText)`
   color: ${props => props.theme.colors.yellow};
 `
 const AboutPageLink = styled(Link)`
+  display: block;
+  width: fit-content;
   transition: all 0.2s ease-in-out;
   &:hover {
     text-decoration: line-through;
@@ -51,12 +53,12 @@ const Divider = styled.span`
 
 const ImageContainer = styled.div`
   @media ${props => props.theme.breakpoints.mobile} {
-    width: 90%;
+    width: 100%;
   }
   @media ${props => props.theme.breakpoints.tablet} {
-    width: 80%;
+    width: 100%;
   }
-  width: 60%;
+  width: 100%;
   padding-top: 2rem;
 `
 
@@ -87,9 +89,12 @@ const AboutSection = () => {
   return (
     <Section id="about">
       <AboutWrapper>
-        {about.aboutSectionSummary.map(item => (
+        {about.aboutSectionSummary.map((item, index) => (
           <AboutText key={item}>
-            {item} <Divider> | </Divider>
+            {item}{" "}
+            {index < about.aboutSectionSummary.length - 1 && (
+              <Divider> | </Divider>
+            )}
           </AboutText>
         ))}
         <AboutPageLink to="/about">
