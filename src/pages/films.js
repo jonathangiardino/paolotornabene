@@ -101,7 +101,7 @@ export default Films
 export const data = graphql`
   query AllFilms {
     gcms {
-      films {
+      films(orderBy: publishedAt_DESC) {
         id
         title
         tags

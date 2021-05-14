@@ -248,7 +248,7 @@ export default Stills
 export const data = graphql`
   query AllStills {
     gcms {
-      stills {
+      stills(orderBy: publishedAt_DESC) {
         title
         imageAsset {
           url
