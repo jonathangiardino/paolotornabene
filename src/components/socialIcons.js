@@ -56,6 +56,43 @@ const SocialIcons = () => {
     }
   `)
 
+  const SocialComponent = (social, theme) => {
+    if (social.link.includes("instagram")) {
+      return (
+        <IconLink href={social.link} target="_blank">
+          <FaInstagram
+            className="social-icon"
+            color={theme.isDark ? "#fff" : "#0a0a0f"}
+          />
+        </IconLink>
+      )
+    } else if (social.link.includes("vimeo")) {
+      return (
+        <IconLink href={social.link} target="_blank">
+          <FaVimeoV
+            className="social-icon"
+            color={theme.isDark ? "#fff" : "#0a0a0f"}
+          />
+        </IconLink>
+      )
+    } else if (social.link.includes("youtube")) {
+      return (
+        <IconLink href={social.link} target="_blank">
+          <FaYoutube
+            className="social-icon"
+            color={theme.isDark ? "#fff" : "#0a0a0f"}
+          />
+        </IconLink>
+      )
+    } else if (social.link.includes("dots")) {
+      return (
+        <IconLink href={social.link} target="_blank">
+          {theme.isDark ? <TheDotsLogo isDark /> : <TheDotsLogo />}
+        </IconLink>
+      )
+    }
+  }
+
   const {
     gcms: { socialLinks },
   } = data
@@ -68,27 +105,7 @@ const SocialIcons = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3, delay: 0.4, ease: "easeInOut" }}
         >
-          <IconLink href={socialLinks[0].link} target="_blank">
-            <FaInstagram
-              className="social-icon"
-              color={theme.isDark ? "#fff" : "#0a0a0f"}
-            />
-          </IconLink>
-          <IconLink href={socialLinks[1].link} target="_blank">
-            <FaVimeoV
-              className="social-icon"
-              color={theme.isDark ? "#fff" : "#0a0a0f"}
-            />
-          </IconLink>
-          <IconLink href={socialLinks[2].link} target="_blank">
-            <FaYoutube
-              className="social-icon"
-              color={theme.isDark ? "#fff" : "#0a0a0f"}
-            />
-          </IconLink>
-          <IconLink href={socialLinks[3].link} target="_blank">
-            {theme.isDark ? <TheDotsLogo isDark /> : <TheDotsLogo />}
-          </IconLink>
+          {socialLinks.map(social => SocialComponent(social, theme))}
         </IconsWrapper>
       )}
     </ThemeContext.Consumer>
