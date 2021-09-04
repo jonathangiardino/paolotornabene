@@ -7,7 +7,7 @@ module.exports = {
     title: `Paolo Tornabene`,
     description: `Filmmaker based in London, UK`,
     author: `@jonathangiardino`,
-    image: `https://i.ibb.co/qyVzRkb/logo-rounded.png`,
+    image: `/images/logo-rounded.png`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

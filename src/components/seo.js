@@ -57,8 +57,12 @@ function SEO({ description, lang, meta, title }) {
           content: site.siteMetadata.image,
         },
         {
+          property: `og:url`,
+          content: `https://paolotornabene.com`,
+        },
+        {
           name: `twitter:card`,
-          content: site.siteMetadata.image,
+          content: title,
         },
         {
           name: `twitter:creator`,
