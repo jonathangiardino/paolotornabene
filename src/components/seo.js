@@ -62,7 +62,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:card`,
-          content: title,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
