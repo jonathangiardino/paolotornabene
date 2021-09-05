@@ -58,16 +58,11 @@ const StillsContainer = styled.div`
   padding-bottom: 2rem;
   margin: 2rem auto 0;
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  @media ${props => props.theme.breakpoints.tablet} {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+  flex-wrap: wrap;
 `
 
 const Still = styled(motion.div)`
-  width: 100vw;
+  width: 48%;
   max-width: 100%;
   height: auto;
   cursor: pointer;
@@ -76,7 +71,6 @@ const Still = styled(motion.div)`
   border: 4px solid ${props => props.theme.background.dark};
   @media ${props => props.theme.breakpoints.tablet} {
     pointer-events: all;
-    width: 33.3%;
     height: auto;
     margin-bottom: 0;
     &:hover {

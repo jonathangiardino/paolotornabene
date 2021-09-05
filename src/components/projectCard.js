@@ -4,17 +4,15 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
-  width: 100%;
+  width: 48%;
   position: relative;
   @media ${props => props.theme.breakpoints.medium} {
-    width: 48%;
     margin: unset;
   }
 `
 
 const BoxImage = styled.div`
   position: relative;
-  overflow: hidden;
   &:hover .img-project {
     transform: scale(1);
   }
@@ -33,7 +31,7 @@ const ProjectTitle = styled.h1`
   opacity: 0;
   line-height: 1.2;
   padding: 1rem;
-  font-size: ${props => props.theme.fontSize.small};
+  font-size: ${props => props.theme.fontSize.xsmall};
   font-family: "Oswald";
   text-align: center;
   text-transform: uppercase;
