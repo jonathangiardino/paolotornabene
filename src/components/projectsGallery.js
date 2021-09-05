@@ -58,6 +58,7 @@ const ProjectsGallery = () => {
           film =>
             film.featured && (
               <ProjectCard
+                width={"100%"}
                 key={film.id}
                 title={film.title}
                 imageSrc={film.imageCover.node.childImageSharp.fluid}

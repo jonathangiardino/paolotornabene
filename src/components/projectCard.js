@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
-  width: 48%;
+  width: ${props => props.width};
   position: relative;
   @media ${props => props.theme.breakpoints.medium} {
     margin: unset;
@@ -48,9 +48,9 @@ const ProjectTitle = styled.h1`
   }
 `
 
-const ProjectCard = ({ title, imageSrc, path }) => {
+const ProjectCard = ({ title, imageSrc, path, width }) => {
   return (
-    <ProjectCardContainer>
+    <ProjectCardContainer width={width}>
       <Link
         to={`/films/${path}`}
         style={{

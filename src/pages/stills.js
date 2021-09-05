@@ -59,10 +59,11 @@ const StillsContainer = styled.div`
   margin: 2rem auto 0;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
 `
 
 const Still = styled(motion.div)`
-  width: 48%;
+  width: 47%;
   max-width: 100%;
   height: auto;
   cursor: pointer;

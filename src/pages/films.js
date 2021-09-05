@@ -93,6 +93,7 @@ const Films = ({ data }) => {
           <Grid>
             {films.map(film => (
               <ProjectCard
+                width={"47%"}
                 key={film.id}
                 title={film.title}
                 imageSrc={film.imageCover.node.childImageSharp.fluid}
