@@ -71,7 +71,7 @@ const StillsContainer = styled.div`
   padding-bottom: 2rem;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: column;
   @media ${props => props.theme.breakpoints.tablet} {
     flex-direction: row;
@@ -89,7 +89,7 @@ const Still = styled(motion.div)`
   border: 4px solid ${props => props.theme.background.dark};
   @media ${props => props.theme.breakpoints.tablet} {
     pointer-events: all;
-    width: 32%;
+    flex: 1;
     height: auto;
     margin-bottom: 0;
     &:hover {

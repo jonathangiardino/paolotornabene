@@ -30,6 +30,14 @@ const FilmsContainer = styled.div`
   }
 `
 
+const Grid = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 1rem;
+`
+
 const Title = styled(motion.h1)`
   font-family: "Oswald";
   font-size: 4.5rem;
@@ -82,15 +90,17 @@ const Films = ({ data }) => {
           >
             Films
           </Title>
-          {films.map(film => (
-            <ProjectCard
-              key={film.id}
-              title={film.title}
-              imageSrc={film.imageCover.node.childImageSharp.fluid}
-              path={slugify(film.title, { lower: true })}
-              date={film.date}
-            />
-          ))}
+          <Grid>
+            {films.map(film => (
+              <ProjectCard
+                key={film.id}
+                title={film.title}
+                imageSrc={film.imageCover.node.childImageSharp.fluid}
+                path={slugify(film.title, { lower: true })}
+                date={film.date}
+              />
+            ))}
+          </Grid>
         </FilmsContainer>
       </FilmsPageWrapper>
     </Layout>

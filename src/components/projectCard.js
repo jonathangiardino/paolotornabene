@@ -5,17 +5,10 @@ import { Link } from "gatsby"
 
 const ProjectCardContainer = styled.div`
   width: 100%;
-  margin: 1rem 0 0;
   position: relative;
   @media ${props => props.theme.breakpoints.medium} {
-    width: 100%;
-    margin: 2rem 0;
-  }
-  @media ${props => props.theme.breakpoints.large} {
-    width: 100%;
-  }
-  @media ${props => props.theme.breakpoints.xlarge} {
-    margin: 2rem auto;
+    width: 48%;
+    margin: unset;
   }
 `
 
@@ -39,6 +32,7 @@ const ProjectTitle = styled.h1`
   width: 100%;
   opacity: 0;
   line-height: 1.2;
+  padding: 1rem;
   font-size: ${props => props.theme.fontSize.small};
   font-family: "Oswald";
   text-align: center;
@@ -52,7 +46,7 @@ const ProjectTitle = styled.h1`
   color: white;
   mix-blend-mode: difference;
   @media ${props => props.theme.breakpoints.tablet} {
-    font-size: ${props => props.theme.fontSize.title};
+    font-size: ${props => props.theme.fontSize.small};
   }
 `
 

@@ -76,7 +76,7 @@ const Still = styled(motion.div)`
   border: 4px solid ${props => props.theme.background.dark};
   @media ${props => props.theme.breakpoints.tablet} {
     pointer-events: all;
-    width: 50%;
+    width: 33.3%;
     height: auto;
     margin-bottom: 0;
     &:hover {

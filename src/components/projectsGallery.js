@@ -19,8 +19,8 @@ const FilmsContainer = styled.div`
   margin: 10rem 0 0 0;
   width: 100vw;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
 `
 
 const ProjectsGallery = () => {
