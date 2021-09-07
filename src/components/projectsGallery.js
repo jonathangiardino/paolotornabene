@@ -17,7 +17,8 @@ const Section = styled.section`
 `
 const FilmsContainer = styled.div`
   margin: 10rem 0 0 0;
-  width: 100vw;
+  width: 100%;
+  max-width: 1080px;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;

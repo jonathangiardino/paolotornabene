@@ -88,7 +88,6 @@ const Still = styled(motion.div)`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.5);
   }
 `
 
