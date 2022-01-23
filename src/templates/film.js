@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import { navigate } from "@reach/router"
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
