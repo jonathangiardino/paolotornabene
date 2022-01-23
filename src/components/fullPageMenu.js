@@ -93,10 +93,10 @@ const FullPageMenu = ({ closeMenu, menuState }) => {
       itemName: "Films",
       route: "/films",
     },
-    {
-      itemName: "Stills",
-      route: "/stills",
-    },
+    // {
+    //   itemName: "Stills",
+    //   route: "/stills",
+    // },
     {
       itemName: "Hire Me",
       route: "/#contact",

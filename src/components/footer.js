@@ -78,7 +78,7 @@ const Footer = ({ linkColor }) => {
   const links = [
     { linkText: "About", path: "/about" },
     { linkText: "Films", path: "/films" },
-    { linkText: "Stills", path: "/stills" },
+    // { linkText: "Stills", path: "/stills" },
     { linkText: "Contact", path: "/#contact" },
   ]
 
