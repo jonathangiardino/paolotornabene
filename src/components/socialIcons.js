@@ -5,11 +5,13 @@ import { graphql, useStaticQuery } from "gatsby"
 import ThemeContext from "../store/ThemeContext"
 
 import { FaInstagram } from "react-icons/fa"
-import { FaVimeoV } from "react-icons/fa"
-import { FaYoutube } from "react-icons/fa"
+import { FaVimeoV, FaLinkedinIn, FaYoutube } from "react-icons/fa"
 import theDotsBlack from "../images/theDotsBlack.svg"
 import theDotsWhite from "../images/theDotsWhite.svg"
 import theDotsHover from "../images/theDotsHover.svg"
+import mandyDark from "../images/mandy-dark.svg"
+import mandyLight from "../images/mandy-light.svg"
+import mandyHover from "../images/mandy-hover.svg"
 
 import { motion } from "framer-motion"
 
@@ -45,6 +47,21 @@ const TheDotsLogo = styled.div`
   }
 `
 
+const MandyLogo = styled.div`
+  height: 34px;
+  min-width: 34px;
+  background: url(${props => (props.isDark ? mandyLight : mandyDark)});
+  background-repeat: no-repeat;
+  background-position: center;
+  &:hover {
+    height: 34px;
+    min-width: 34px;
+    background: url(${mandyHover});
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+`
+
 const SocialIcons = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -75,6 +92,15 @@ const SocialIcons = () => {
           />
         </IconLink>
       )
+    } else if (social.link.includes("linkedin")) {
+      return (
+        <IconLink href={social.link} target="_blank">
+          <FaLinkedinIn
+            className="social-icon"
+            color={theme.isDark ? "#fff" : "#0a0a0f"}
+          />
+        </IconLink>
+      )
     } else if (social.link.includes("youtube")) {
       return (
         <IconLink href={social.link} target="_blank">
@@ -90,12 +116,20 @@ const SocialIcons = () => {
           {theme.isDark ? <TheDotsLogo isDark /> : <TheDotsLogo />}
         </IconLink>
       )
+    } else if (social.link.includes("mandy")) {
+      return (
+        <IconLink href={social.link} target="_blank">
+          {theme.isDark ? <MandyLogo isDark /> : <MandyLogo />}
+        </IconLink>
+      )
     }
   }
 
   const {
     gcms: { socialLinks },
   } = data
+
+  console.log(socialLinks)
 
   return (
     <ThemeContext.Consumer>
